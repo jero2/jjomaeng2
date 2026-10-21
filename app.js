@@ -1,0 +1,374 @@
+(function () {
+  const POSTS = window.POSTS;
+  const SITE = window.SITE;
+  const app = document.getElementById("app");
+  const curtain = document.getElementById("curtain");
+  const curtainLabel = document.getElementById("curtainLabel");
+  const progress = document.getElementById("progress");
+  const masthead = document.querySelector(".masthead");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const pad = (n) => String(n).padStart(2, "0");
+  const sleep = (ms) => new Promise((r) => setTimeout(r, reduceMotion ? 0 : ms));
+
+  document.getElementById("today").textContent = new Date()
+    .toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" })
+    .replace(/\s/g, "");
+
+  /* ---------- 라우팅 ---------- */
+  function parseRoute() {
+    const hash = location.hash.replace(/^#/, "") || "/";
+    const [path, query = ""] = hash.split("?");
+    const params = new URLSearchParams(query);
+    const m = path.match(/^\/post\/([\w-]+)/);
+    if (m) return { type: "post", slug: m[1] };
+    return { type: "home", cat: params.get("c") || "all" };
+  }
+
+  /* ---------- 공통 조각 ---------- */
+  // 사진 파일이 아직 없으면 선 패턴 커버로 대체한다
+  function media(post, size) {
+    const word = post.category === "hall" ? "Wedding Hall" : "Studio";
+    const fallback = `<div class="lined"><span class="lined__big">${post.series.replace(/^.*\((\d)\)$/, "No.$1")}</span><span class="lined__word">${word}</span></div>`;
+    if (!post.image) return fallback;
+    return `<img src="${post.image}" alt="${post.imageAlt}" ${size === "thumb" ? 'loading="lazy"' : ""} data-fallback="${encodeURIComponent(fallback)}" />`;
+  }
+  document.addEventListener(
+    "error",
+    (e) => {
+      const img = e.target;
+      if (img.tagName !== "IMG") return;
+      const holder = img.parentElement;
+      if (img.dataset.fallback) img.outerHTML = decodeURIComponent(img.dataset.fallback);
+      else holder.innerHTML = '<div class="lined"></div>';
+    },
+    true
+  );
+
+  const splitLines = (text) =>
+    text
+      .split("\n")
+      .map((line) => `<span class="split"><span>${line}</span></span>`)
+      .join("");
+
+  /* ---------- 메인 ---------- */
+  function renderHome(cat) {
+    const sorted = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
+    const featured = POSTS[0];
+    const total = POSTS.length;
+
+    const rows = sorted
+      .map((p) => {
+        const no = POSTS.indexOf(p) + 1;
+        return `
+        <li class="post-row" data-cat="${p.category}" data-reveal>
+          <a href="#/post/${p.slug}" data-link>
+            <span class="post-row__no">${pad(no)}</span>
+            <span class="post-row__cat"><span>${p.categoryLabel}</span></span>
+            <div class="post-row__main">
+              <h3>${p.series} · ${p.title.replace("\n", " ")}</h3>
+              <p>${p.excerpt}</p>
+            </div>
+            <div class="post-row__side">
+              <span class="post-row__date">${p.date}</span>
+              <div class="post-row__thumb">${media(p, "thumb")}</div>
+            </div>
+          </a>
+        </li>`;
+      })
+      .join("");
+
+    app.innerHTML = `
+      <section class="wrap hero">
+        <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
+        <h1 class="hero__title" data-reveal-split>
+          <span class="split"><span>직접 써본 방식 그대로,</span></span>
+          <span class="split"><span class="thin">자료로 나눠요.</span></span>
+        </h1>
+        <div class="hero__foot">
+          <p class="hero__desc" data-reveal>결혼 준비하면서 내 추구미를 알아가는 중. 웨딩홀과 스튜디오를 고르면서 실제로 썼던 순서와 체크리스트를 한 장씩 정리해 무료로 공유해요.</p>
+          <div class="hero__stat" data-reveal>
+            <div><b>${pad(total)}</b><small>Articles</small></div>
+            <div><b>${pad(total)}</b><small>Free files</small></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="wrap"><div class="rule" data-line></div></div>
+
+      <section class="wrap">
+        <a href="#/post/${featured.slug}" class="featured" data-link data-reveal-block>
+          <div class="featured__media">${media(featured)}</div>
+          <div class="featured__info">
+            <div>
+              <div class="featured__tag"><span>Featured — ${featured.categoryLabel}</span><span>${featured.date}</span></div>
+              <h2 class="featured__title">${featured.title}</h2>
+              <p class="featured__sub">${featured.excerpt}</p>
+            </div>
+            <span class="featured__more">읽고 자료 받기 <i class="arrow"></i></span>
+          </div>
+        </a>
+      </section>
+
+      <section class="wrap">
+        <div class="list-head">
+          <h2>All Articles<small>${pad(total)} posts</small></h2>
+          <div class="filter" role="tablist">
+            <button data-filter="all">전체</button>
+            <button data-filter="hall">웨딩홀</button>
+            <button data-filter="studio">스튜디오</button>
+          </div>
+        </div>
+        <ul class="post-list">${rows}</ul>
+      </section>
+    `;
+
+    app.querySelectorAll("[data-filter]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const c = btn.dataset.filter;
+        history.replaceState(null, "", c === "all" ? "#/" : `#/?c=${c}`);
+        applyFilter(c);
+      })
+    );
+    applyFilter(cat, true);
+  }
+
+  function applyFilter(cat, instant) {
+    app.querySelectorAll("[data-filter]").forEach((b) => b.classList.toggle("is-active", b.dataset.filter === cat));
+    setNavActive(cat);
+    const rows = [...app.querySelectorAll(".post-row")];
+    rows.forEach((row) => {
+      const show = cat === "all" || row.dataset.cat === cat;
+      if (instant) {
+        row.classList.toggle("is-hidden", !show);
+        return;
+      }
+      row.classList.remove("is-visible");
+      row.classList.toggle("is-hidden", !show);
+    });
+    if (!instant) {
+      rows
+        .filter((r) => !r.classList.contains("is-hidden"))
+        .forEach((r, i) => setTimeout(() => r.classList.add("is-visible"), 60 + i * 70));
+    }
+  }
+
+  function setNavActive(cat) {
+    document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("is-active", cat != null && a.dataset.cat === cat));
+  }
+
+  /* ---------- 글 페이지 ---------- */
+  function renderPost(slug) {
+    const idx = POSTS.findIndex((p) => p.slug === slug);
+    if (idx < 0) {
+      location.replace("#/");
+      return;
+    }
+    const p = POSTS[idx];
+    const prev = POSTS[idx - 1];
+    const next = POSTS[idx + 1];
+    setNavActive(p.category);
+
+    app.innerHTML = `
+      <article>
+        <header class="wrap post-hero">
+          <div class="crumb" data-reveal><a href="#/" data-link><i class="arrow"></i>Archive</a><span>/</span><span>${p.categoryLabel}</span></div>
+          <div class="post-hero__head">
+            <div>
+              <p class="post-hero__series" data-reveal>${pad(idx + 1)} — ${p.series}</p>
+              <h1 class="post-hero__title" data-reveal-split>${splitLines(p.title)}</h1>
+              <p class="post-hero__sub" data-reveal>${p.subtitle}</p>
+            </div>
+            <dl class="post-hero__meta" data-reveal>
+              <dt>Date</dt><dd>${p.date}</dd>
+              <dt>Read</dt><dd>${p.readTime}</dd>
+              <dt>Category</dt><dd>${p.categoryLabel}</dd>
+            </dl>
+          </div>
+          <div class="rule" data-line></div>
+          <div class="cover" data-reveal-block>${media(p)}</div>
+        </header>
+
+        <div class="wrap article">
+          <aside class="article__aside">
+            <p><b>${p.series}</b>쪼맹의 자료공유집</p>
+            <p><b>Free file</b>${p.file.name}</p>
+          </aside>
+          <div class="article__body">${p.body}</div>
+        </div>
+
+        <section class="download" data-reveal>
+          <div>
+            <p class="download__eyebrow">Free Download</p>
+            <h2 class="download__title">${p.file.name}</h2>
+            <p class="download__desc">${p.file.desc}</p>
+            <div class="download__meta"><span>무료 공유</span><span>한정 기간 배포</span><span>${p.series}</span></div>
+          </div>
+          <button class="btn btn--solid" data-download="${p.slug}"><span>자료 다운로드</span><i class="btn__arrow btn__arrow--down"></i></button>
+        </section>
+
+        <nav class="wrap">
+          <div class="pager">
+            ${prev ? `<a href="#/post/${prev.slug}" data-link><small>Previous</small><b>${prev.series} · ${prev.title.replace("\n", " ")}</b></a>` : `<a class="is-empty"></a>`}
+            ${next ? `<a href="#/post/${next.slug}" data-link><small>Next</small><b>${next.series} · ${next.title.replace("\n", " ")}</b></a>` : `<a href="#/" data-link><small>Back to</small><b>전체 글 보기</b></a>`}
+          </div>
+        </nav>
+      </article>
+    `;
+
+    app.querySelector("[data-download]").addEventListener("click", () => openModal(p));
+    app.querySelectorAll(".article__body > *").forEach((el) => {
+      if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
+    });
+  }
+
+  /* ---------- 자료 다운로드 모달 (쿠팡 방문 후 열림) ---------- */
+  const modal = document.getElementById("modal");
+  const coupangBtn = document.getElementById("coupangBtn");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const step1 = document.getElementById("step1");
+  const step2 = document.getElementById("step2");
+  let lastFocus = null;
+
+  function setUnlocked(on) {
+    downloadBtn.classList.toggle("is-locked", !on);
+    downloadBtn.classList.toggle("is-unlocked", on);
+    downloadBtn.setAttribute("aria-disabled", String(!on));
+    step1.classList.toggle("is-active", !on);
+    step1.classList.toggle("is-done", on);
+    step2.classList.toggle("is-active", on);
+    coupangBtn.querySelector("span").textContent = on ? "쿠팡 다시 보러 가기" : "쿠팡 방문하고 자료 받기";
+  }
+
+  function openModal(post) {
+    lastFocus = document.activeElement;
+    document.getElementById("modalFile").textContent = `${post.file.name} · ${post.file.desc}`;
+    coupangBtn.href = SITE.coupangUrl;
+    downloadBtn.href = post.file.url;
+    if (post.file.url && post.file.url !== "#") downloadBtn.setAttribute("download", "");
+    setUnlocked(false);
+    modal.hidden = false;
+    document.body.classList.add("is-locked");
+    requestAnimationFrame(() => requestAnimationFrame(() => modal.classList.add("is-open")));
+    setTimeout(() => coupangBtn.focus(), 300);
+  }
+
+  function closeModal() {
+    modal.classList.remove("is-open");
+    document.body.classList.remove("is-locked");
+    setTimeout(() => (modal.hidden = true), reduceMotion ? 0 : 600);
+    if (lastFocus) lastFocus.focus();
+  }
+
+  coupangBtn.addEventListener("click", () => setTimeout(() => setUnlocked(true), 400));
+  downloadBtn.addEventListener("click", (e) => {
+    if (downloadBtn.classList.contains("is-locked")) e.preventDefault();
+    else if (downloadBtn.getAttribute("href") === "#") {
+      e.preventDefault();
+      alert("자료 파일 링크가 아직 연결되지 않았어요. posts.js의 file.url을 채워주세요.");
+    }
+  });
+  modal.addEventListener("click", (e) => {
+    if (e.target.closest("[data-close]")) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.hidden) closeModal();
+  });
+
+  /* ---------- 스크롤 등장 ---------- */
+  let io;
+  function observe() {
+    if (io) io.disconnect();
+    io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((en) => {
+          if (en.isIntersecting) {
+            en.target.classList.add("is-visible");
+            io.unobserve(en.target);
+          }
+        }),
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    let delay = 0;
+    app.querySelectorAll("[data-reveal], [data-reveal-split], [data-reveal-block], [data-line]").forEach((el) => {
+      const r = el.getBoundingClientRect();
+      // 첫 화면 요소는 순서대로 살짝씩 늦게 등장
+      if (r.top < innerHeight) {
+        el.style.transitionDelay = `${delay}ms`;
+        el.querySelectorAll(".split > span").forEach((s, i) => (s.style.transitionDelay = `${delay + i * 90}ms`));
+        delay += 90;
+      }
+      io.observe(el);
+    });
+  }
+
+  /* ---------- 스크롤 효과 ---------- */
+  function onScroll() {
+    const y = scrollY;
+    masthead.classList.toggle("is-compact", y > 80);
+    const max = document.documentElement.scrollHeight - innerHeight;
+    const isPost = parseRoute().type === "post";
+    progress.style.transform = `scaleX(${isPost && max > 0 ? Math.min(y / max, 1) : 0})`;
+    const cover = app.querySelector(".cover.is-visible img");
+    if (cover && !reduceMotion) cover.style.transform = `translateY(${Math.min(y * 0.12, 120)}px) scale(1.06)`;
+  }
+  addEventListener("scroll", () => requestAnimationFrame(onScroll), { passive: true });
+
+  /* ---------- 렌더 + 전환 ---------- */
+  let current = null;
+  // 첫 로딩 때는 인트로가 걷히는 타이밍에 맞춰 등장시킨다
+  let revealDelay = reduceMotion ? 0 : 450;
+  function render(route) {
+    if (route.type === "post") renderPost(route.slug);
+    else renderHome(route.cat);
+    current = route;
+    window.scrollTo(0, 0);
+    onScroll();
+    setTimeout(observe, revealDelay);
+    revealDelay = 0;
+  }
+
+  async function navigate() {
+    const route = parseRoute();
+    if (current && current.type === "home" && route.type === "home") {
+      applyFilter(route.cat);
+      return;
+    }
+    if (!current || reduceMotion) return render(route);
+
+    const label = route.type === "post" ? (POSTS.find((p) => p.slug === route.slug) || {}).series || "" : "Archive";
+    curtainLabel.textContent = label;
+    curtain.className = "curtain";
+    void curtain.offsetWidth;
+    curtain.classList.add("is-in");
+    await sleep(850);
+    render(route);
+    curtain.classList.replace("is-in", "is-out");
+    await sleep(850);
+    curtain.className = "curtain";
+  }
+
+  addEventListener("hashchange", navigate);
+
+  /* ---------- 첫 로딩 ---------- */
+  async function boot() {
+    const loader = document.getElementById("loader");
+    const count = document.getElementById("loaderCount");
+    const start = performance.now();
+    const duration = reduceMotion ? 0 : 1500;
+    await new Promise((resolve) => {
+      const tick = (t) => {
+        const k = duration ? Math.min((t - start) / duration, 1) : 1;
+        count.textContent = pad(Math.round(k * 100));
+        k < 1 ? requestAnimationFrame(tick) : resolve();
+      };
+      requestAnimationFrame(tick);
+    });
+    await sleep(250);
+    navigate();
+    loader.classList.add("is-done");
+    await sleep(1200);
+    loader.remove();
+  }
+  boot();
+})();

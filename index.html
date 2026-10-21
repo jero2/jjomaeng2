@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>쪼맹의 자료공유집</title>
+  <meta name="description" content="결혼 준비하면서 직접 만든 자료를 나누는 곳. 웨딩홀, 스튜디오 고르는 순서와 체크리스트." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 첫 로딩 인트로 -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <span class="loader__vol">Vol. 01 — Wedding Archive</span>
+      <h1 class="loader__title"><span>쪼맹의</span> <span>자료공유집</span></h1>
+      <span class="loader__line"></span>
+      <span class="loader__count" id="loaderCount">00</span>
+    </div>
+  </div>
+
+  <!-- 페이지 전환 커튼 -->
+  <div class="curtain" id="curtain" aria-hidden="true">
+    <span class="curtain__line"></span>
+    <span class="curtain__label" id="curtainLabel"></span>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <div class="masthead__top">
+      <span class="masthead__meta">Since 2026</span>
+      <span class="masthead__meta masthead__meta--center">결혼 준비하면서 내 추구미를 알아가는 중</span>
+      <span class="masthead__meta masthead__meta--right" id="today"></span>
+    </div>
+    <div class="masthead__bar">
+      <a href="#/" class="logo" data-link>쪼맹의 자료공유집</a>
+      <nav class="nav">
+        <a href="#/" data-link data-cat="all">Archive</a>
+        <a href="#/?c=hall" data-link data-cat="hall">웨딩홀</a>
+        <a href="#/?c=studio" data-link data-cat="studio">스튜디오</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="app"></main>
+
+  <footer class="footer">
+    <div class="footer__rule"></div>
+    <div class="footer__grid">
+      <div>
+        <p class="footer__logo">쪼맹의 자료공유집</p>
+        <p class="footer__desc">직접 써본 방식 그대로 자료로 만들어 나눠요.</p>
+      </div>
+      <p class="footer__notice">
+        이 사이트의 일부 링크는 쿠팡 파트너스 활동의 일환으로,<br />
+        이에 따른 일정액의 수수료를 제공받습니다.
+      </p>
+      <p class="footer__copy">© 2026 쪼맹. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 자료 다운로드 모달 -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal__dim" data-close></div>
+    <div class="modal__panel">
+      <span class="modal__corner modal__corner--tl"></span>
+      <span class="modal__corner modal__corner--br"></span>
+      <button class="modal__x" data-close aria-label="닫기">Close</button>
+      <p class="modal__eyebrow">Free Download</p>
+      <h2 class="modal__title" id="modalTitle">잠깐, 자료 받기 전에<br />쿠팡 한 번만 들러주세요</h2>
+      <p class="modal__file" id="modalFile"></p>
+      <ol class="modal__steps">
+        <li class="is-active" id="step1"><span>01</span>아래 버튼으로 쿠팡 방문하기</li>
+        <li id="step2"><span>02</span>이 창으로 돌아와 자료 받기</li>
+      </ol>
+      <p class="modal__desc">구매하지 않아도 괜찮아요. 방문만 해주시면 자료가 바로 열려요.<br />덕분에 다음 자료도 계속 무료로 만들 수 있어요.</p>
+      <a class="btn btn--solid" id="coupangBtn" target="_blank" rel="noopener sponsored">
+        <span>쿠팡 방문하고 자료 받기</span><i class="btn__arrow"></i>
+      </a>
+      <a class="btn btn--line is-locked" id="downloadBtn" aria-disabled="true">
+        <span>자료 다운로드</span><i class="btn__arrow btn__arrow--down"></i>
+      </a>
+      <p class="modal__notice">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+    </div>
+  </div>
+
+  <script src="posts.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
