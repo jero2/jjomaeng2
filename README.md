@@ -15,9 +15,9 @@
 1. `posts.js`의 `SITE.coupangUrl`을 쿠팡 파트너스 링크로 교체
 2. 각 게시물 `file.url`에 실제 자료 주소(PDF, 노션 공유 링크 등) 입력
 3. `images/`에 사진 넣기 (파일명 그대로)
-   - `forehead.png` 이마를 맞댄 따뜻한 웨딩 스냅
-   - `altar-hug.png` 제단 앞 따뜻한 웨딩 포옹
-   - `ring-hands.png` 신랑 손 위, 반지 낀 신부의 손
+   - `forehead.jpg` 이마를 맞댄 따뜻한 웨딩 스냅
+   - `altar-hug.jpg` 제단 앞 따뜻한 웨딩 포옹
+   - `ring-hands.jpg` 신랑 손 위, 반지 낀 신부의 손
 
 사진이 없으면 선 패턴 커버로 자동 대체된다.
 

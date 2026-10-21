@@ -18,7 +18,7 @@ window.POSTS = [
     excerpt: "지역도 넓고 예쁜 홀도 너무 많을 때. 홀보다 먼저 지역부터 줄였더니 하루 4곳 투어로 고민 없이 원픽이 나왔어요.",
     date: "2026.10.10",
     readTime: "4 min",
-    image: "images/forehead.png",
+    image: "images/forehead.jpg",
     imageAlt: "이마를 맞댄 따뜻한 웨딩 스냅",
     file: {
       name: "웨딩홀 후보 줄이기 워크시트",
@@ -55,7 +55,7 @@ window.POSTS = [
       </section>
 
       <figure class="inline-figure" data-reveal>
-        <div class="inline-figure__img"><img src="images/altar-hug.png" alt="제단 앞 따뜻한 웨딩 포옹" loading="lazy" /></div>
+        <div class="inline-figure__img"><img src="images/altar-hug.jpg" alt="제단 앞 따뜻한 웨딩 포옹" loading="lazy" /></div>
         <figcaption>밝고 따뜻한 분위기, 심플한 연출, 여백 있는 느낌.</figcaption>
       </figure>
 
@@ -100,7 +100,7 @@ window.POSTS = [
     excerpt: "투어 당일엔 설명을 듣다 보면 정작 봐야 할 걸 놓쳐요. 현장에서 꼭 확인한 것들만 한 장으로 정리했어요.",
     date: "2026.10.14",
     readTime: "3 min",
-    image: "images/altar-hug.png",
+    image: "images/altar-hug.jpg",
     imageAlt: "제단 앞 따뜻한 웨딩 포옹",
     file: {
       name: "웨딩홀 투어 당일 체크리스트",
@@ -150,7 +150,7 @@ window.POSTS = [
     excerpt: "마음에 드는 홀이 두 곳 남았을 때, 감이 아니라 기준으로 순위를 정한 방법이에요.",
     date: "2026.10.18",
     readTime: "3 min",
-    image: "images/ring-hands.png",
+    image: "images/ring-hands.jpg",
     imageAlt: "신랑 손 위, 반지 낀 신부의 손",
     file: {
       name: "웨딩홀 최종 비교표",
