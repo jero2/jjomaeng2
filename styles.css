@@ -232,7 +232,7 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 .step p + p { margin-top: 0.9em; }
 .mood { list-style: none; margin: 1.2em 0; border-top: 1px solid var(--ink); }
 .mood li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--ink); font-weight: 500; }
-.mood li span { color: var(--accent); }
+.mood li span { color: var(--mint); }
 .highlight { display: inline-block; margin-top: 1em !important; padding: 10px 16px; background: var(--accent-soft); color: var(--accent); font-size: 15px; font-weight: 500; }
 
 .inline-figure { margin: 2.6em 0 !important; }
