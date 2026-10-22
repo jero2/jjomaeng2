@@ -21,9 +21,9 @@ window.POSTS = [
     image: "images/forehead.jpg",
     imageAlt: "이마를 맞댄 따뜻한 웨딩 스냅",
     file: {
-      name: "웨딩홀 후보 줄이기 워크시트",
-      desc: "지역 + 추구미 3번 선택 + 후보 적기",
-      url: "#", // 실제 자료 파일(PDF, 노션 공유 링크 등)로 교체
+      name: "웨딩홀 너무 많아서 못 고르겠다면",
+      desc: "지역 고르기 · 사진에서 3개 고르기 · 안 맞는 홀 빼기",
+      url: "https://app.notion.com/p/jero2/01-3f9ca52271a880789543d09ae16df1b6",
     },
     body: `
       <p class="lead">지역도 넓고, 예쁜 홀도 너무 많고.. 그냥 찾기 시작하면 후보만 계속 늘어나요. 그래서 저는 <u>홀보다 먼저 지역부터 줄였어요.</u></p>

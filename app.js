@@ -245,7 +245,9 @@
     document.getElementById("modalFile").textContent = `${post.file.name} · ${post.file.desc}`;
     coupangBtn.href = SITE.coupangUrl;
     downloadBtn.href = post.file.url;
-    if (post.file.url && post.file.url !== "#") downloadBtn.setAttribute("download", "");
+    // 노션 같은 외부 링크는 새 탭으로 연다
+    downloadBtn.target = "_blank";
+    downloadBtn.rel = "noopener";
     setUnlocked(false);
     modal.hidden = false;
     document.body.classList.add("is-locked");
