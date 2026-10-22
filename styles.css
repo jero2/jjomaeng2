@@ -50,9 +50,8 @@ button { font: inherit; letter-spacing: inherit; background: none; border: 0; co
 }
 .loader__title { font-size: clamp(36px, 7vw, 64px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.15; margin: 14px 0 22px; overflow: hidden; }
 .loader__title span { display: inline-block; transform: translateY(110%); animation: up 1s var(--ease-out) forwards; }
-.loader__title span:nth-child(2) { animation-delay: 0.12s; font-weight: 300; }
+.loader__title span:nth-child(2) { animation-delay: 0.12s; font-weight: 300; color: var(--mint); }
 .loader__line { display: block; height: 1px; background: var(--line); transform: scaleX(0); transform-origin: left; animation: draw 1.4s var(--ease) 0.4s forwards; }
-.loader__line::after { content: ""; display: block; width: 48px; height: 3px; margin-top: -1px; background: var(--mint); }
 .loader__count { position: absolute; right: 0; bottom: -28px; font-size: 12px; font-variant-numeric: tabular-nums; color: var(--ink-3); }
 
 @keyframes up { to { transform: translateY(0); } }
