@@ -191,7 +191,7 @@
 
         <div class="wrap article">
           <aside class="article__aside">
-            <p><b>${p.series}</b>쪼맹의 자료공유집</p>
+            <p><b>${p.series}</b>✦쪼맹의 자료공유집</p>
             <p><b>Free file</b>${p.file.name}</p>
           </aside>
           <div class="article__body">${p.body}</div>
