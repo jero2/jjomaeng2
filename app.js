@@ -197,6 +197,7 @@
           <div class="article__body">${p.body}</div>
         </div>
 
+${renderPreview(p)}
         <section class="download" data-reveal>
           <div>
             <p class="download__eyebrow">Free Download</p>
@@ -220,6 +221,35 @@
     app.querySelectorAll(".article__body > *").forEach((el) => {
       if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
     });
+  }
+
+  function renderPreview(p) {
+    const pv = p.preview;
+    if (!pv) return "";
+    const toc = pv.toc
+      .map(([t, d], i) => `<li><span>${pad(i + 1)}</span><div><b>${t}</b><small>${d}</small></div></li>`)
+      .join("");
+    const checks = pv.checks
+      .map(([t, a, b]) => `<div><b>${t}</b><p><i></i>${a}</p><p><i></i>${b}</p></div>`)
+      .join("");
+    return `
+      <section class="preview" data-reveal>
+        <div class="preview__head">
+          <p class="preview__eyebrow">Inside the file</p>
+          <h2 class="preview__title">자료 미리보기</h2>
+          <p class="preview__desc">글에서 말한 순서를 직접 해볼 수 있게 정리했어요.</p>
+        </div>
+        <ol class="preview__toc">${toc}</ol>
+        <div class="preview__sample">
+          <p class="preview__label">${pv.sample.label}</p>
+          <p class="preview__quote">${pv.sample.text}</p>
+          <p class="preview__note">— ${pv.sample.note}</p>
+        </div>
+        <div class="preview__locked">
+          <div class="preview__checks" aria-hidden="true">${checks}</div>
+          <p class="preview__more">체크칸과 후보 적는 칸은 자료에서 이어져요</p>
+        </div>
+      </section>`;
   }
 
   /* ---------- 자료 다운로드 모달 (쿠팡 방문 후 열림) ---------- */
