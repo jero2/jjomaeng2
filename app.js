@@ -15,6 +15,33 @@
     .toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" })
     .replace(/\s/g, "");
 
+  /* ---------- 통계 (구글 애널리틱스) ---------- */
+  if (SITE.gaId) {
+    const tag = document.createElement("script");
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${SITE.gaId}`;
+    document.head.appendChild(tag);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      dataLayer.push(arguments);
+    };
+    gtag("js", new Date());
+    // 해시 주소라 페이지 조회는 화면이 바뀔 때마다 직접 보낸다
+    gtag("config", SITE.gaId, { send_page_view: false });
+  }
+  function track(name, params) {
+    if (window.gtag) gtag("event", name, params);
+  }
+  const postParams = (p) => ({ post_title: `${p.series} · ${p.title.replace("\n", " ")}`, post_slug: p.slug });
+
+  /* ---------- 복사 방지 ---------- */
+  ["copy", "cut", "contextmenu", "dragstart", "selectstart"].forEach((type) =>
+    document.addEventListener(type, (e) => e.preventDefault())
+  );
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && ["a", "c", "x", "s", "u", "p"].includes(e.key.toLowerCase())) e.preventDefault();
+  });
+
   /* ---------- 라우팅 ---------- */
   function parseRoute() {
     const hash = location.hash.replace(/^#/, "") || "/";
@@ -270,7 +297,10 @@ ${renderPreview(p)}
     coupangBtn.querySelector("span").textContent = on ? "쿠팡 다시 보러 가기" : "쿠팡 방문하고 자료 받기";
   }
 
+  let modalPost = null;
   function openModal(post) {
+    modalPost = post;
+    track("file_modal_open", postParams(post));
     lastFocus = document.activeElement;
     document.getElementById("modalFile").textContent = `${post.file.name} · ${post.file.desc}`;
     coupangBtn.href = SITE.coupangUrl;
@@ -292,13 +322,16 @@ ${renderPreview(p)}
     if (lastFocus) lastFocus.focus();
   }
 
-  coupangBtn.addEventListener("click", () => setTimeout(() => setUnlocked(true), 400));
+  coupangBtn.addEventListener("click", () => {
+    track("coupang_click", { ...postParams(modalPost), button_location: "download_modal" });
+    setTimeout(() => setUnlocked(true), 400);
+  });
   downloadBtn.addEventListener("click", (e) => {
     if (downloadBtn.classList.contains("is-locked")) e.preventDefault();
     else if (downloadBtn.getAttribute("href") === "#") {
       e.preventDefault();
       alert("자료 파일 링크가 아직 연결되지 않았어요. posts.js의 file.url을 채워주세요.");
-    }
+    } else track("file_download", postParams(modalPost));
   });
   modal.addEventListener("click", (e) => {
     if (e.target.closest("[data-close]")) closeModal();
@@ -354,6 +387,13 @@ ${renderPreview(p)}
     if (route.type === "post") renderPost(route.slug);
     else renderHome(route.cat);
     current = route;
+    const post = route.type === "post" && POSTS.find((p) => p.slug === route.slug);
+    track("page_view", {
+      page_title: post ? postParams(post).post_title : "메인",
+      page_location: location.href,
+      page_path: post ? `/post/${post.slug}` : "/",
+      ...(post ? { post_slug: post.slug } : {}),
+    });
     window.scrollTo(0, 0);
     onScroll();
     setTimeout(observe, revealDelay);

@@ -5,6 +5,8 @@
 window.SITE = {
   // 쿠팡 파트너스에서 발급받은 링크로 교체
   coupangUrl: "https://link.coupang.com/a/h3BXfmue0y",
+  // 구글 애널리틱스 측정 ID (G-로 시작). 비워두면 통계를 보내지 않는다
+  gaId: "",
 };
 
 window.POSTS = [
