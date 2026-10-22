@@ -86,7 +86,7 @@
           <span class="split"><span class="thin">자료로 나눠요.</span></span>
         </h1>
         <div class="hero__foot">
-          <p class="hero__desc" data-reveal>결혼 준비하면서 내 추구미를 알아가는 중. 웨딩홀과 스튜디오를 고르면서 실제로 썼던 순서와 체크리스트를 한 장씩 정리해 무료로 공유해요.</p>
+          <p class="hero__desc" data-reveal>결혼 준비하면서 내 추구미를 알아가는 중.<br />웨딩홀과 스튜디오를 고르면서 실제로 썼던 순서와 체크리스트를 한 장씩 정리해 무료로 공유해요.</p>
           <div class="hero__stat" data-reveal>
             <div><b>${pad(total)}</b><small>Articles</small></div>
             <div><b>${pad(total)}</b><small>Free files</small></div>

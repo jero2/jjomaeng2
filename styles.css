@@ -122,7 +122,7 @@ button { font: inherit; letter-spacing: inherit; background: none; border: 0; co
 .hero__title { margin-top: 22px; font-size: clamp(40px, 8.4vw, 116px); font-weight: 700; letter-spacing: -0.055em; line-height: 1.02; }
 .hero__title .thin { font-weight: 200; }
 .hero__foot { margin-top: clamp(28px, 4vw, 48px); display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; }
-.hero__desc { max-width: 420px; color: var(--ink-2); font-size: 15px; line-height: 1.8; }
+.hero__desc { max-width: 720px; color: var(--ink-2); font-size: 15px; line-height: 1.8; }
 .hero__stat { display: flex; gap: 32px; }
 .hero__stat div { border-left: 1px solid var(--line); padding-left: 14px; }
 .hero__stat b { display: block; font-size: 28px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
