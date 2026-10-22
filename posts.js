@@ -4,7 +4,7 @@
  */
 window.SITE = {
   // 쿠팡 파트너스에서 발급받은 링크로 교체
-  coupangUrl: "https://www.coupang.com/",
+  coupangUrl: "https://link.coupang.com/a/h3BXfmue0y",
 };
 
 window.POSTS = [
