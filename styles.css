@@ -404,3 +404,8 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; }
 }
+
+/* 사진 2장 나란히 */
+.figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.figure-pair .inline-figure__img { aspect-ratio: 4 / 5; }
+.figure-pair figcaption { grid-column: 1 / -1; }

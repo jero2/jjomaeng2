@@ -111,53 +111,131 @@ window.POSTS = [
     `,
   },
   {
-    slug: "wedding-hall-2",
+    slug: "wedding-hall-noble",
     category: "hall",
     categoryLabel: "웨딩홀",
     series: "웨딩홀 (2)",
-    title: "투어 당일,\n이것만 보고 왔어요",
-    subtitle: "상담 실장님 말에 휩쓸리지 않는 체크 포인트",
-    excerpt: "투어 당일엔 설명을 듣다 보면 정작 봐야 할 걸 놓쳐요. 현장에서 꼭 확인한 것들만 한 장으로 정리했어요.",
-    date: "2026.10.14",
-    readTime: "3 min",
-    image: "images/altar-hug.jpg",
-    imageAlt: "제단 앞 따뜻한 웨딩 포옹",
+    title: "제일 예뻤던 웨딩홀인데\n계약은 안 했어요",
+    subtitle: "노블발렌티 대치 홀투어 · 실제 견적과 계약 전 체크 포인트",
+    excerpt: "하객일 때부터 채플홀 원탑이던 노블발렌티 대치. 홀은 여전히 원탑인데, 견적과 조건에서 멈칫했던 이야기예요.",
+    date: "2026.10.27",
+    readTime: "5 min",
+    image: "images/noble-3.png",
+    imageAlt: "생화로 꾸민 노블발렌티 대치 채플홀 버진로드",
     file: {
-      name: "웨딩홀 투어 당일 체크리스트",
-      desc: "홀 · 동선 · 식사 · 계약 조건 한 장 정리",
-      url: "#",
+      name: "노블발렌티 대치 실제 견적",
+      desc: "날짜별 견적 3장 비교 · 견적 외 비용 · 상담 체크리스트",
+      url: "https://app.notion.com/p/406ca52271a88173a5dbdc9a19d002dc",
+    },
+    preview: {
+      toc: [
+        ["견적 받은 조건", "예식 후보 3개 · 최소 보증인원 · 계약금"],
+        ["날짜별 견적 비교", "기본 견적 vs 프로모션, 날짜마다 달라진 금액"],
+        ["견적 외에 따로 드는 비용", "필수 본식스냅 · 선택 항목까지"],
+        ["상담 때 꼭 물어볼 것", "투어 전에 체크해서 들고 갈 질문 6개"],
+      ],
+      sample: {
+        label: "💘 팁!",
+        text: "“처음에는 최소 보증인원으로<br />견적을 잡아보세요”",
+        note: "대부분 홀에서 계약 후 보증인원을 올릴 수 있어서, 저희는 200명으로 가장 작게 요청했어요",
+      },
+      checks: [
+        ["① 비선호 날짜 혜택", "물어봤다", "아직이다"],
+        ["② 보증인원 조정 시점", "물어봤다", "아직이다"],
+        ["③ 필수 추가 항목", "물어봤다", "아직이다"],
+      ],
     },
     body: `
-      <p class="lead">투어 당일엔 생각보다 정신이 없어요. 설명 듣고, 사진 찍고, 견적 받다 보면 <u>정작 보려던 걸 놓치고 나와요.</u></p>
+      <p class="lead">노블발렌티 대치는 제가 하객으로 결혼식 다닐 때부터 “와.. 여기 진짜 예쁘다” 했던 곳이에요. 제 기준 <u>채플홀 원탑 중 원탑.</u></p>
+      <p>결혼식 로망 없다는 사람이 홀 분위기에는 꽤나 진심이었던 것..ㅎ 그래서 웨딩홀 투어 리스트에도 당연히 넣었어요.</p>
+
+      <figure class="inline-figure figure-pair" data-reveal>
+        <div class="inline-figure__img"><img src="images/noble-1.png" alt="아치형 천장 아래 연회장" loading="lazy" /></div>
+        <div class="inline-figure__img"><img src="images/noble-2.png" alt="상담 때 나온 디저트와 음료" loading="lazy" /></div>
+      </figure>
+
+      <p>근데 결론부터 말하면 <b>홀은 여전히 원탑인데, 계약은 안 했습니다.</b></p>
+      <p>네..? 추구미와 현실의 협의가 결렬된 건에 대하여.. 8-8</p>
 
       <section class="step">
         <span class="step__no">01</span>
         <div class="step__body">
-          <p class="step__label">Check 1</p>
-          <h3>홀 안에서 볼 것</h3>
-          <p>버진로드 길이, 천장 높이, 조명 색. 사진보다 실제가 어두운 곳이 꽤 많았어요.</p>
+          <p class="step__label">Hall</p>
+          <h3>왜 이렇게 예쁜 건데요</h3>
+          <p>높은 아치형 천장과 웅장한 채플홀 분위기가 제일 큰 매력이라고 생각해요.</p>
+          <ul class="mood">
+            <li><span>✦</span>단독 채플홀</li>
+            <li><span>✦</span>약 10m 높이의 아치형 천장</li>
+            <li><span>✦</span>분리예식 / 90분 간격</li>
+            <li><span>✦</span>생화 장식이 어우러지는 채플 분위기</li>
+          </ul>
+          <p>이미 하객으로 경험해 본 홀이라 분위기는 어느 정도 알고 갔는데도 <u>역시 제 취향이더라고요.</u></p>
         </div>
       </section>
+
+      <figure class="inline-figure figure-pair" data-reveal>
+        <div class="inline-figure__img"><img src="images/noble-3.png" alt="생화로 꾸민 채플홀 버진로드" loading="lazy" /></div>
+        <div class="inline-figure__img"><img src="images/noble-4.png" alt="흰 꽃으로 채운 아치 공간" loading="lazy" /></div>
+      </figure>
+
+      <figure class="inline-figure figure-pair" data-reveal>
+        <div class="inline-figure__img"><img src="images/noble-5.png" alt="꽃 장식이 놓인 웰컴 공간" loading="lazy" /></div>
+        <div class="inline-figure__img"><img src="images/noble-6.png" alt="신부대기실 입구" loading="lazy" /></div>
+        <figcaption>홀 분위기만 점수 매기면 저한테는 거의 만점.</figcaption>
+      </figure>
+
+      <p>문제는.. <b>웨딩홀이 분위기만 보고 계약하는 곳은 아니라는 것.</b></p>
 
       <section class="step">
         <span class="step__no">02</span>
         <div class="step__body">
-          <p class="step__label">Check 2</p>
-          <h3>하객 입장에서 볼 것</h3>
-          <p>엘리베이터 대기, 로비 혼잡도, 식당까지 가는 길. 하객이 불편하면 그날 기억이 그렇게 남더라고요.</p>
+          <p class="step__label">Price</p>
+          <h3>비선호 날짜인데도..?</h3>
+          <p>제가 안내받은 날짜와 시간은 제가 원하던 선호 조건이 아니었어요. 그래서 사실 쪼끔 기대했거든요. 비선호 날짜와 시간대라면 그만큼 금액적인 메리트나 혜택이 있지 않을까..?</p>
+          <p>그런데 상담받은 견적은 제 기준에서 크게 저렴하게 느껴지지 않았고, 특별한 혜택도 안내받지 못했어요. 물론 인기 있는 웨딩홀이고 날짜나 시간에 따라 조건은 다를 수 있겠지만!</p>
+          <p class="highlight">메인타임도 아닌데 생각보다 가격 메리트가 없네..?</p>
+          <p>취향은 강력하게 찬성 but 현실은 계산기 두드리는 중..ㅎ</p>
         </div>
       </section>
+
+      <figure class="inline-figure figure-pair" data-reveal>
+        <div class="inline-figure__img"><img src="images/noble-7.png" alt="웰컴드링크 바" loading="lazy" /></div>
+        <div class="inline-figure__img"><img src="images/noble-8.png" alt="홀 안 생화 장식" loading="lazy" /></div>
+      </figure>
 
       <section class="step">
         <span class="step__no">03</span>
         <div class="step__body">
-          <p class="step__label">Check 3</p>
-          <h3>견적서에서 볼 것</h3>
-          <p>보증 인원, 식대 포함 항목, 추가금 붙는 연출. 계약 전에 꼭 서면으로 받아두세요.</p>
+          <p class="step__label">Consult</p>
+          <h3>여러 홀을 다녀보고 알게 된 상담의 차이</h3>
+          <p>이건 노블발렌티 대치만의 문제라기보다는 웨딩홀 투어를 다녀보면서 느낀 부분인데요. 상담 당시에는 홀 분위기와 뷔페 동선 위주로 안내받았고, 그때는 저도 별생각이 없었어요.</p>
+          <p>그런데 여러 홀을 비교해 보니까 <b>아.. 이런 것도 물어봐야 했구나?</b> 싶은 것들이 생기더라고요.</p>
+          <ul class="mood">
+            <li><span>✦</span>계약 후 보증인원은 언제까지 조정 가능한지</li>
+            <li><span>✦</span>최소 보증인원 변경은 가능한지</li>
+            <li><span>✦</span>계약 변경이나 취소 시 조건은 어떤지</li>
+            <li><span>✦</span>견적 외 추가로 발생할 수 있는 비용은 없는지</li>
+          </ul>
+          <p>질문하면 설명받을 수 있는 내용이었을 거예요. 첫 투어 때는 뭘 모르는지도 몰랐던 사람.. 그게 바로 접니다..ㅎ</p>
         </div>
       </section>
 
-      <p>현장에서 체크만 하면 되도록 한 장짜리 자료로 만들어뒀어요.</p>
+      <section class="result">
+        <p class="result__label">Result</p>
+        <p>노블발렌티 대치는 지금도 제 취향 원탑이에요.</p>
+        <p>그런데 제게 안내된 계약 조건까지 원탑은 아니었던 것..ㅎ</p>
+        <blockquote>“좋아하는 공간과<br />선택할 수 있는 공간은 다르구나”</blockquote>
+        <p>이번 투어에서 <u>제일 크게 느낀 점이에요.</u></p>
+      </section>
+
+      <h2>웨딩홀 투어 전 이건 꼭 확인해 보세요</h2>
+      <ol class="summary">
+        <li><span>01</span>비선호 날짜·시간이라면 어떤 혜택이 있는지</li>
+        <li><span>02</span>보증인원은 계약 후 언제까지 조정할 수 있는지</li>
+        <li><span>03</span>견적 외 추가 비용은 어떤 게 있는지</li>
+      </ol>
+      <p>기본 견적만 듣지 말고 다른 날짜와 조건도 같이 물어보고, 꽃장식 · 연출 · 필수 선택 항목까지 실제 결제할 금액 기준으로 비교하세요.</p>
+      <p>제가 실제로 받은 날짜별 견적 3장과 상담 체크리스트를 <b>자료</b>로 정리해뒀어요. 아래에서 받아가세요.</p>
     `,
   },
   {
