@@ -185,6 +185,14 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 .post-row__thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease-out); }
 .post-row:hover .post-row__thumb img { transform: scale(1.12); }
 .post-row.is-hidden { display: none; }
+/* 준비 중인 글 */
+.post-row__inner { display: grid; grid-template-columns: 64px 120px 1fr 180px; gap: 24px; align-items: center; padding: 28px 0; cursor: default; }
+.post-row.is-locked::before { display: none; }
+.post-row.is-locked .post-row__main h3, .post-row.is-locked .post-row__main p { transform: none !important; }
+.post-row.is-locked .post-row__main h3 { color: var(--ink-3); font-weight: 500; }
+.post-row.is-locked .post-row__no { color: var(--hair); }
+.post-row__lock { display: grid; place-items: center; background: var(--paper-2); }
+.post-row__lock svg { width: 22px; height: 22px; fill: none; stroke: var(--ink-3); stroke-width: 1.2; }
 
 /* 이미지가 없을 때 쓰는 선 패턴 커버 */
 .lined { position: relative; width: 100%; height: 100%; background: var(--paper-2); overflow: hidden; }
@@ -362,7 +370,7 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
-  .post-row a { grid-template-columns: 40px 1fr 72px; gap: 16px; }
+  .post-row a, .post-row__inner { grid-template-columns: 40px 1fr 72px; gap: 16px; }
   .post-row__cat { display: none; }
   .post-row__date { display: none; }
   .article { grid-template-columns: minmax(0, 1fr); }
@@ -383,7 +391,7 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
   .featured { grid-template-columns: 1fr; }
   .featured__media { aspect-ratio: 4 / 3; }
   .featured__title { margin-top: 20px; }
-  .post-row a { grid-template-columns: 28px 1fr 64px; padding: 22px 0; }
+  .post-row a, .post-row__inner { grid-template-columns: 28px 1fr 64px; padding: 22px 0; }
   .post-row__main p { -webkit-line-clamp: 2; }
   .post-row__thumb { width: 64px; }
   .post-hero__head { grid-template-columns: 1fr; }

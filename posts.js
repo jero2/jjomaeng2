@@ -240,6 +240,7 @@ window.POSTS = [
   },
   {
     slug: "wedding-hall-3",
+    locked: true, // 준비 중: 목록에 잠금으로만 표시
     category: "hall",
     categoryLabel: "웨딩홀",
     series: "웨딩홀 (3)",
@@ -290,6 +291,7 @@ window.POSTS = [
   },
   {
     slug: "studio-1",
+    locked: true, // 준비 중: 목록에 잠금으로만 표시
     category: "studio",
     categoryLabel: "스튜디오",
     series: "스튜디오 (1)",
@@ -331,6 +333,7 @@ window.POSTS = [
   },
   {
     slug: "studio-2",
+    locked: true, // 준비 중: 목록에 잠금으로만 표시
     category: "studio",
     categoryLabel: "스튜디오",
     series: "스튜디오 (2)",

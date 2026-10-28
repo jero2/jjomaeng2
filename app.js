@@ -80,13 +80,19 @@
 
   /* ---------- 메인 ---------- */
   function renderHome(cat) {
-    const sorted = [...POSTS].sort((a, b) => b.date.localeCompare(a.date));
-    const featured = POSTS[0];
-    const total = POSTS.length;
+    // 공개 글은 최신순, 잠긴 글은 그 아래에 번호순
+    const sorted = [...POSTS].sort((a, b) =>
+      a.locked || b.locked
+        ? !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b)
+        : b.date.localeCompare(a.date)
+    );
+    const featured = POSTS.find((p) => !p.locked);
+    const total = POSTS.filter((p) => !p.locked).length;
 
     const rows = sorted
       .map((p) => {
         const no = POSTS.indexOf(p) + 1;
+        if (p.locked) return lockedRow(p, no);
         return `
         <li class="post-row" data-cat="${p.category}" data-reveal>
           <a href="#/post/${p.slug}" data-link>
@@ -184,16 +190,38 @@
     document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("is-active", cat != null && a.dataset.cat === cat));
   }
 
+  const LOCK_ICON =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>';
+
+  function lockedRow(p, no) {
+    return `
+        <li class="post-row is-locked" data-cat="${p.category}" data-reveal aria-disabled="true">
+          <div class="post-row__inner">
+            <span class="post-row__no">${pad(no)}</span>
+            <span class="post-row__cat"><span>${p.categoryLabel}</span></span>
+            <div class="post-row__main">
+              <h3>${p.series} · 준비 중이에요</h3>
+              <p>곧 자료와 함께 공개될 글이에요.</p>
+            </div>
+            <div class="post-row__side">
+              <span class="post-row__date">Coming soon</span>
+              <div class="post-row__thumb post-row__lock">${LOCK_ICON}</div>
+            </div>
+          </div>
+        </li>`;
+  }
+
   /* ---------- 글 페이지 ---------- */
   function renderPost(slug) {
     const idx = POSTS.findIndex((p) => p.slug === slug);
-    if (idx < 0) {
+    if (idx < 0 || POSTS[idx].locked) {
       location.replace("#/");
       return;
     }
     const p = POSTS[idx];
-    const prev = POSTS[idx - 1];
-    const next = POSTS[idx + 1];
+    const open = POSTS.filter((x) => !x.locked);
+    const prev = open[open.indexOf(p) - 1];
+    const next = open[open.indexOf(p) + 1];
     setNavActive(p.category);
 
     app.innerHTML = `
