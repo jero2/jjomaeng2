@@ -86,7 +86,8 @@
         ? !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b)
         : b.date.localeCompare(a.date)
     );
-    const featured = POSTS.find((p) => !p.locked);
+    const featured =
+      POSTS.find((p) => !p.locked && p.slug === SITE.featured) || sorted.find((p) => !p.locked);
     const total = POSTS.filter((p) => !p.locked).length;
 
     const rows = sorted
@@ -113,6 +114,10 @@
 
     app.innerHTML = `
       <section class="wrap hero">
+        <div class="social" data-reveal>
+          <a href="${SITE.instagram}" target="_blank" rel="noopener" data-sns="instagram" aria-label="인스타그램">${ICON_INSTAGRAM}<span>Instagram</span></a>
+          <a href="${SITE.youtube}" target="_blank" rel="noopener" data-sns="youtube" aria-label="유튜브">${ICON_YOUTUBE}<span>YouTube</span></a>
+        </div>
         <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
         <h1 class="hero__title" data-reveal-split>
           <span class="split"><span>직접 써본 방식 그대로,</span></span>
@@ -156,6 +161,9 @@
       </section>
     `;
 
+    app.querySelectorAll("[data-sns]").forEach((a) =>
+      a.addEventListener("click", () => track("sns_click", { sns: a.dataset.sns }))
+    );
     app.querySelectorAll("[data-filter]").forEach((btn) =>
       btn.addEventListener("click", () => {
         const c = btn.dataset.filter;
@@ -190,6 +198,10 @@
     document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("is-active", cat != null && a.dataset.cat === cat));
   }
 
+  const ICON_INSTAGRAM =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" class="dot"/></svg>';
+  const ICON_YOUTUBE =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.2 9.4v5.2l4.4-2.6z" class="dot"/></svg>';
   const LOCK_ICON =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>';
 

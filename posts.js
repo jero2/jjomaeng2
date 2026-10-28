@@ -7,6 +7,10 @@ window.SITE = {
   coupangUrl: "https://link.coupang.com/a/h3BXfmue0y",
   // 구글 애널리틱스 측정 ID (G-로 시작). 비워두면 통계를 보내지 않는다
   gaId: "G-RLK2H1XH2H",
+  // 메인 상단 추천 글: "latest"면 가장 최근 글. 특정 글로 고정하려면 slug를 넣는다 (예: "wedding-hall-1")
+  featured: "latest",
+  instagram: "https://www.instagram.com/jjomaeng.2/",
+  youtube: "https://www.youtube.com/@jjomaeng2",
 };
 
 window.POSTS = [
