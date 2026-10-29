@@ -341,6 +341,10 @@ ${renderPreview(p)}
         window.scrollTo({ top, behavior });
       })
     );
+    // 폰에서는 문장이 끝날 때마다 줄을 바꿔 읽기 편하게 (말줄임표 ..는 제외)
+    app.querySelectorAll(".article__body p:not(.step__label):not(.result__label):not(.highlight)").forEach((el) => {
+      el.innerHTML = el.innerHTML.replace(/([가-힣][.?!])\s+(?=[^\s<])/g, '$1 <br class="m-br" />');
+    });
     app.querySelectorAll(".article__body > *").forEach((el) => {
       if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
     });

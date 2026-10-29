@@ -261,18 +261,21 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 .article__body .lead { font-size: clamp(19px, 2vw, 22px); line-height: 1.75; color: var(--ink); font-weight: 400; padding-bottom: 1.6em; border-bottom: 1px solid var(--hair); }
 .article__body u { text-decoration: none; background: linear-gradient(transparent 62%, var(--mint-soft) 62%); }
 .article__body b { font-weight: 600; color: var(--ink); }
-.article__body h2 { font-size: clamp(24px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.045em; line-height: 1.35; margin-top: 2.4em; padding-top: 1.2em; border-top: 1px solid var(--line); color: var(--ink); }
+.article__body h2 { font-size: clamp(24px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.045em; line-height: 1.35; margin-top: 2.4em; padding-top: 1.2em; border-top: 1px solid var(--line); color: var(--mint); }
 
 .step { display: grid; grid-template-columns: 72px 1fr; gap: 20px; padding: 2.2em 0 0.4em; position: relative; }
 .step__no { font-size: 44px; font-weight: 200; line-height: 1; letter-spacing: -0.04em; color: var(--ink); position: relative; }
 .step__no::after { content: ""; position: absolute; left: 22px; top: 56px; width: 1px; height: calc(100% + 40px); background: var(--hair); }
 .step__no::before { content: ""; position: absolute; left: 0; top: -14px; width: 18px; height: 2px; background: var(--mint); }
 .step__label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); line-height: 1; padding-top: 6px; }
-.step h3 { font-size: clamp(20px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.04em; color: var(--ink); margin: 8px 0 12px; line-height: 1.4; }
+.step h3 { font-size: clamp(20px, 2.2vw, 24px); font-weight: 600; letter-spacing: -0.04em; color: var(--mint); margin: 8px 0 12px; line-height: 1.4; }
 .step p + p { margin-top: 0.9em; }
 .mood { list-style: none; margin: 1.2em 0; border-top: 1px solid var(--ink); }
-.mood li { display: flex; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--hair); color: var(--ink); font-weight: 500; }
-.mood li span { color: var(--mint); }
+.mood li { position: relative; padding: 12px 0 12px 28px; border-bottom: 1px solid var(--hair); color: var(--ink); font-weight: 500; }
+.mood li > span:first-child { position: absolute; left: 0; top: 12px; color: var(--mint); }
+.mood li b { font-weight: 700; }
+/* 폰에서만 쓰는 줄바꿈 */
+@media (min-width: 761px) { .m-br { display: none; } }
 .highlight { display: inline-block; margin-top: 1em !important; padding: 10px 16px; background: var(--accent-soft); color: var(--accent); font-size: 15px; font-weight: 500; }
 
 .inline-figure { margin: 2.6em 0 !important; }
