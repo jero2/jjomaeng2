@@ -42,6 +42,11 @@
     if ((e.ctrlKey || e.metaKey) && ["a", "c", "x", "s", "u", "p"].includes(e.key.toLowerCase())) e.preventDefault();
   });
 
+  document.addEventListener("click", (e) => {
+    const sns = e.target.closest("[data-sns]");
+    if (sns) track("sns_click", { sns: sns.dataset.sns });
+  });
+
   /* ---------- 라우팅 ---------- */
   function parseRoute() {
     const hash = location.hash.replace(/^#/, "") || "/";
@@ -86,8 +91,6 @@
         ? !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b)
         : b.date.localeCompare(a.date)
     );
-    const featured =
-      POSTS.find((p) => !p.locked && p.slug === SITE.featured) || sorted.find((p) => !p.locked);
     const total = POSTS.filter((p) => !p.locked).length;
 
     const rows = sorted
@@ -136,19 +139,7 @@
 
       <div class="wrap"><div class="rule" data-line></div></div>
 
-      <section class="wrap">
-        <a href="#/post/${featured.slug}" class="featured" data-link data-reveal-block>
-          <div class="featured__media">${media(featured)}</div>
-          <div class="featured__info">
-            <div>
-              <div class="featured__tag"><span>Featured — ${featured.categoryLabel}</span><span>${featured.date}</span></div>
-              <h2 class="featured__title">${featured.title}</h2>
-              <p class="featured__sub">${featured.excerpt}</p>
-            </div>
-            <span class="featured__more">읽고 자료 받기 <i class="arrow"></i></span>
-          </div>
-        </a>
-      </section>
+      <section class="wrap featured-slot">${featuredHTML(cat)}</section>
 
       <section class="wrap">
         <div class="list-head">
@@ -163,9 +154,6 @@
       </section>
     `;
 
-    app.querySelectorAll("[data-sns]").forEach((a) =>
-      a.addEventListener("click", () => track("sns_click", { sns: a.dataset.sns }))
-    );
     app.querySelectorAll("[data-filter]").forEach((btn) =>
       btn.addEventListener("click", () => {
         const c = btn.dataset.filter;
@@ -176,12 +164,63 @@
     applyFilter(cat, true);
   }
 
+  const openPosts = () =>
+    POSTS.filter((p) => !p.locked).sort((a, b) => b.date.localeCompare(a.date));
+
+  // 추천 글: 전체 화면은 SITE.featured(기본 최신 글), 카테고리 화면은 그 카테고리 최신 글을 작게
+  function featuredHTML(cat) {
+    const open = openPosts();
+    const newest = open[0];
+    const small = cat !== "all";
+    const f = small
+      ? open.find((p) => p.category === cat)
+      : open.find((p) => p.slug === SITE.featured) || newest;
+    const cls = `featured${small ? " is-small" : ""}`;
+    if (!f) {
+      const label = cat === "studio" ? "스튜디오" : "웨딩홀";
+      return `
+        <a href="${SITE.kakao}" target="_blank" rel="noopener" class="${cls} is-empty" data-sns="kakao" data-reveal-block>
+          <div class="featured__media"><div class="lined"><span class="lined__big">Soon</span><span class="lined__word">${cat === "studio" ? "Studio" : "Wedding Hall"}</span></div></div>
+          <div class="featured__info">
+            <div>
+              <div class="featured__tag"><span>Coming soon — ${label}</span><span></span></div>
+              <h2 class="featured__title">${label} 글은 준비 중이에요</h2>
+              <p class="featured__sub">곧 자료와 함께 올라와요.<br />새 자료 소식은 오픈채팅에서 먼저 안내해요.</p>
+            </div>
+            <span class="featured__more">새 자료 소식 받기 <i class="arrow"></i></span>
+          </div>
+        </a>`;
+    }
+    return `
+        <a href="#/post/${f.slug}" class="${cls}" data-link data-reveal-block>
+          <div class="featured__media">${media(f)}</div>
+          <div class="featured__info">
+            <div>
+              <div class="featured__tag"><span>Featured — ${f.categoryLabel}</span><span>${f.date}</span></div>
+              ${f === newest ? '<p class="featured__new">New</p>' : ""}
+              <h2 class="featured__title">${f.title}</h2>
+              <p class="featured__sub">${f.excerptHtml || f.excerpt}</p>
+            </div>
+            <span class="featured__more">읽고 자료 받기 <i class="arrow"></i></span>
+          </div>
+        </a>`;
+  }
+
   function applyFilter(cat, instant) {
     app.querySelectorAll("[data-filter]").forEach((b) => b.classList.toggle("is-active", b.dataset.filter === cat));
     setNavActive(cat);
     // 카테고리 화면에서는 큰 소개 문구 대신 한 줄 문구만 보여준다
     const hero = app.querySelector(".hero");
     if (hero) hero.classList.toggle("is-cat", cat !== "all");
+    const slot = app.querySelector(".featured-slot");
+    if (slot && !instant) {
+      slot.innerHTML = featuredHTML(cat);
+      const card = slot.firstElementChild;
+      requestAnimationFrame(() => requestAnimationFrame(() => card.classList.add("is-visible")));
+    } else if (slot && slot.dataset.cat !== cat) {
+      slot.innerHTML = featuredHTML(cat);
+    }
+    if (slot) slot.dataset.cat = cat;
     const rows = [...app.querySelectorAll(".post-row")];
     rows.forEach((row) => {
       const show = cat === "all" || row.dataset.cat === cat;

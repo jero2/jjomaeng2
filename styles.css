@@ -160,6 +160,18 @@ button { font: inherit; letter-spacing: inherit; background: none; border: 0; co
 .featured__tag { display: flex; justify-content: space-between; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
 .featured__title { margin: clamp(24px, 4vw, 56px) 0 18px; font-size: clamp(30px, 3.8vw, 52px); font-weight: 700; line-height: 1.18; letter-spacing: -0.045em; white-space: pre-line; }
 .featured__sub { color: var(--ink-2); font-size: 16px; line-height: 1.75; }
+.featured__sub mark { background: linear-gradient(transparent 58%, var(--mint-soft) 58%); color: var(--ink); font-weight: 600; }
+.featured__new { margin-top: clamp(24px, 4vw, 56px); margin-bottom: -6px; font-size: 13px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); }
+.featured__new + .featured__title { margin-top: 10px; }
+/* 카테고리 화면용 작은 추천 */
+.featured.is-small { grid-template-columns: minmax(0, 300px) 1fr; padding: clamp(24px, 3vw, 40px) 0; }
+.featured.is-small .featured__media { aspect-ratio: 4 / 3; }
+.featured.is-small .featured__title { font-size: clamp(22px, 2.4vw, 30px); margin: 18px 0 12px; }
+.featured.is-small .featured__new { margin-top: 18px; }
+.featured.is-small .featured__new + .featured__title { margin-top: 6px; }
+.featured.is-small .featured__sub { font-size: 15px; }
+.featured.is-small .featured__more { margin-top: 20px; }
+.featured.is-empty .featured__title { color: var(--ink-2); }
 .featured__more { margin-top: 32px; display: inline-flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; }
 
 /* ---------- Arrow ---------- */
@@ -401,6 +413,8 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
   .hero__foot { grid-template-columns: 1fr; }
   .featured { grid-template-columns: 1fr; }
   .featured__media { aspect-ratio: 4 / 3; }
+  .featured.is-small { grid-template-columns: 1fr; }
+  .featured.is-small .featured__media { aspect-ratio: 16 / 9; }
   .featured__title { margin-top: 20px; }
   .post-row a, .post-row__inner { grid-template-columns: 28px 1fr 64px; padding: 22px 0; }
   .post-row__main p { -webkit-line-clamp: 2; }
