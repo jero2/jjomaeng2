@@ -119,6 +119,7 @@
           <a href="${SITE.youtube}" target="_blank" rel="noopener" data-sns="youtube" aria-label="유튜브">${ICON_YOUTUBE}<span>YouTube</span></a>
           <a href="${SITE.kakao}" target="_blank" rel="noopener" data-sns="kakao" aria-label="카카오톡 오픈채팅">${ICON_CHAT}<span>새로운 자료 소식을 안내드려요</span></a>
         </div>
+        <p class="hero__compact">직접 써본 방식 그대로, 자료로 나눠요.</p>
         <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
         <h1 class="hero__title" data-reveal-split>
           <span class="split"><span>직접 써본 방식 그대로,</span></span>
@@ -178,6 +179,9 @@
   function applyFilter(cat, instant) {
     app.querySelectorAll("[data-filter]").forEach((b) => b.classList.toggle("is-active", b.dataset.filter === cat));
     setNavActive(cat);
+    // 카테고리 화면에서는 큰 소개 문구 대신 한 줄 문구만 보여준다
+    const hero = app.querySelector(".hero");
+    if (hero) hero.classList.toggle("is-cat", cat !== "all");
     const rows = [...app.querySelectorAll(".post-row")];
     rows.forEach((row) => {
       const show = cat === "all" || row.dataset.cat === cat;
