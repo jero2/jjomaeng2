@@ -341,9 +341,9 @@ ${renderPreview(p)}
         window.scrollTo({ top, behavior });
       })
     );
-    // 폰에서는 문장이 끝날 때마다 줄을 바꿔 읽기 편하게 (말줄임표 ..는 제외)
+    // 문장이 끝날 때마다 줄바꿈 (PC·폰 모두). 말줄임표 ..는 이어 쓰고, ..ㅎ 뒤에서는 바꾼다
     app.querySelectorAll(".article__body p:not(.step__label):not(.result__label):not(.highlight)").forEach((el) => {
-      el.innerHTML = el.innerHTML.replace(/([가-힣][.?!])\s+(?=[^\s<])/g, '$1 <br class="m-br" />');
+      el.innerHTML = el.innerHTML.replace(/([가-힣][.?!]|\.\.ㅎ)\s+(?=[^\s<])/g, "$1<br />");
     });
     app.querySelectorAll(".article__body > *").forEach((el) => {
       if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
