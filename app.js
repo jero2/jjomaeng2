@@ -117,6 +117,7 @@
         <div class="social" data-reveal>
           <a href="${SITE.instagram}" target="_blank" rel="noopener" data-sns="instagram" aria-label="인스타그램">${ICON_INSTAGRAM}<span>Instagram</span></a>
           <a href="${SITE.youtube}" target="_blank" rel="noopener" data-sns="youtube" aria-label="유튜브">${ICON_YOUTUBE}<span>YouTube</span></a>
+          <a href="${SITE.kakao}" target="_blank" rel="noopener" data-sns="kakao" aria-label="카카오톡 오픈채팅">${ICON_CHAT}<span>새로운 자료 소식을 안내드려요</span></a>
         </div>
         <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
         <h1 class="hero__title" data-reveal-split>
@@ -202,6 +203,8 @@
     '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" class="dot"/></svg>';
   const ICON_YOUTUBE =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.2 9.4v5.2l4.4-2.6z" class="dot"/></svg>';
+  const ICON_CHAT =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5c-4.9 0-8.5 3-8.5 6.7 0 2.3 1.4 4.3 3.6 5.5l-.8 3 3.3-2c.8.2 1.6.3 2.4.3 4.9 0 8.5-3 8.5-6.8S16.9 4.5 12 4.5z"/></svg>';
   const LOCK_ICON =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="1"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg>';
 

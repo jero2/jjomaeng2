@@ -11,6 +11,7 @@ window.SITE = {
   featured: "latest",
   instagram: "https://www.instagram.com/jjomaeng.2/",
   youtube: "https://www.youtube.com/@jjomaeng2",
+  kakao: "https://open.kakao.com/o/gkbqCBUi", // 새 자료 소식 오픈채팅
 };
 
 window.POSTS = [
