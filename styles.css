@@ -247,8 +247,14 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 
 .article { display: grid; grid-template-columns: 1fr minmax(0, 680px) 1fr; gap: 32px; padding-top: clamp(48px, 7vw, 96px); padding-bottom: clamp(48px, 7vw, 96px); }
 .article__aside { position: sticky; top: 110px; align-self: start; font-size: 12px; color: var(--ink-3); }
-.article__aside p { padding: 10px 0; border-top: 1px solid var(--hair); }
-.article__aside p:first-child { border-top-color: var(--ink); }
+.article__aside button { position: relative; display: block; width: 100%; text-align: left; padding: 10px 28px 10px 0; border-top: 1px solid var(--hair); font-size: 12px; color: var(--ink-3); cursor: pointer; transition: color 0.3s; }
+.article__aside button:first-child { border-top-color: var(--ink); }
+.article__aside button:hover { color: var(--ink); }
+.article__aside button:focus-visible { outline: 2px solid var(--mint); outline-offset: 2px; }
+.article__aside button .arrow { position: absolute; right: 0; top: 50%; width: 14px; opacity: 0; transform: translateX(-6px); transition: opacity 0.3s, transform 0.4s var(--ease-out), width 0.4s var(--ease); }
+.article__aside button[data-jump="top"] .arrow { transform: translateX(-6px) rotate(-90deg); }
+.article__aside button[data-jump="file"] .arrow { transform: translateX(-6px) rotate(90deg); }
+.article__aside button:hover .arrow { opacity: 1; width: 14px; }
 .article__aside b { display: block; color: var(--ink); font-weight: 500; font-size: 13px; }
 .article__body { font-size: 17px; line-height: 1.95; color: #2a2a2a; }
 .article__body > * + * { margin-top: 1.3em; }

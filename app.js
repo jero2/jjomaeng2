@@ -304,8 +304,8 @@
 
         <div class="wrap article">
           <aside class="article__aside">
-            <p><b>${p.series}</b>✦쪼맹의 자료공유집</p>
-            <p><b>Free file</b>${p.file.name}</p>
+            <button type="button" data-jump="top"><b>${p.series}</b>✦쪼맹의 자료공유집<i class="arrow"></i></button>
+            <button type="button" data-jump="file"><b>Free file</b>${p.file.name}<i class="arrow"></i></button>
           </aside>
           <div class="article__body">${p.body}</div>
         </div>
@@ -331,6 +331,16 @@ ${renderPreview(p)}
     `;
 
     app.querySelector("[data-download]").addEventListener("click", () => openModal(p));
+    // 왼쪽 사이드: 글 맨 위 / 자료 미리보기(없으면 다운로드 박스)로 이동
+    app.querySelectorAll("[data-jump]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const behavior = reduceMotion ? "auto" : "smooth";
+        if (btn.dataset.jump === "top") return window.scrollTo({ top: 0, behavior });
+        const target = app.querySelector(".preview") || app.querySelector(".download");
+        const top = target.getBoundingClientRect().top + scrollY - masthead.offsetHeight - 40;
+        window.scrollTo({ top, behavior });
+      })
+    );
     app.querySelectorAll(".article__body > *").forEach((el) => {
       if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
     });
