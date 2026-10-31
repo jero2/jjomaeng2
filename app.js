@@ -122,14 +122,14 @@
           <a href="${SITE.youtube}" target="_blank" rel="noopener" data-sns="youtube" aria-label="유튜브">${ICON_YOUTUBE}<span>YouTube</span></a>
           <a href="${SITE.kakao}" target="_blank" rel="noopener" data-sns="kakao" aria-label="카카오톡 오픈채팅">${ICON_CHAT}<span>새로운 자료 소식을 안내드려요</span></a>
         </div>
-        <p class="hero__compact">직접 써본 방식 그대로, 자료로 나눠요.</p>
+        <p class="hero__compact">직접 해보고, 미리 알면 좋을 것만 나눠요.</p>
         <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
         <h1 class="hero__title" data-reveal-split>
-          <span class="split"><span>직접 써본 방식 그대로,</span></span>
-          <span class="split"><span class="thin">자료로 나눠요.</span></span>
+          <span class="split"><span>직접 해보고,</span></span>
+          <span class="split"><span class="thin">미리 알면 좋을 것만 나눠요.</span></span>
         </h1>
         <div class="hero__foot">
-          <p class="hero__desc" data-reveal>결혼 준비하면서 내 추구미를 알아가는 중.<br />웨딩홀과 스튜디오를 고르면서 실제로 썼던 순서와 체크리스트를 한 장씩 정리해 무료로 공유해요.</p>
+          <p class="hero__desc" data-reveal><mark>결혼 준비하면서 내 추구미를 알아가는 중.</mark><br />다 챙기진 못해도, 선택 전에 이것만은 보고 가요.</p>
           <div class="hero__stat" data-reveal>
             <div><b>${pad(total)}</b><small>Articles</small></div>
             <div><b>${pad(total)}</b><small>Free files</small></div>
