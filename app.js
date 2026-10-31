@@ -119,14 +119,15 @@
       <section class="wrap hero">
         <div class="social" data-reveal>
           <a href="${SITE.instagram}" target="_blank" rel="noopener" data-sns="instagram" aria-label="인스타그램">${ICON_INSTAGRAM}<span>Instagram</span></a>
+          <a href="${SITE.blog}" target="_blank" rel="noopener" data-sns="blog" aria-label="네이버 블로그">${ICON_BLOG}<span>Blog</span></a>
           <a href="${SITE.youtube}" target="_blank" rel="noopener" data-sns="youtube" aria-label="유튜브">${ICON_YOUTUBE}<span>YouTube</span></a>
           <a href="${SITE.kakao}" target="_blank" rel="noopener" data-sns="kakao" aria-label="카카오톡 오픈채팅">${ICON_CHAT}<span>새로운 자료 소식을 안내드려요</span></a>
         </div>
         <p class="hero__compact">직접 해보고, 미리 알면 좋을 것만 나눠요.</p>
         <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
         <h1 class="hero__title" data-reveal-split>
-          <span class="split"><span>직접 해보고,</span></span>
-          <span class="split"><span class="thin">미리 알면 좋을 것만 나눠요.</span></span>
+          <span class="split"><span class="thin">직접 해보고,</span></span>
+          <span class="split"><span>미리 알면 좋을 것<span class="thin">만 나눠요.</span></span></span>
         </h1>
         <div class="hero__foot">
           <p class="hero__desc" data-reveal><mark>결혼 준비하면서 내 추구미를 알아가는 중.</mark><br />다 챙기진 못해도, 선택 전에 이것만은 보고 가요.</p>
@@ -244,6 +245,8 @@
 
   const ICON_INSTAGRAM =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="0.6" class="dot"/></svg>';
+  const ICON_BLOG =
+    '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M8 16.5l1-3.5 6-6 2.5 2.5-6 6z"/></svg>';
   const ICON_YOUTUBE =
     '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="3.5"/><path d="M10.2 9.4v5.2l4.4-2.6z" class="dot"/></svg>';
   const ICON_CHAT =

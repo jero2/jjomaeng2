@@ -10,6 +10,7 @@ window.SITE = {
   // 메인 상단 추천 글: "latest"면 가장 최근 글. 특정 글로 고정하려면 slug를 넣는다 (예: "wedding-hall-1")
   featured: "latest",
   instagram: "https://www.instagram.com/jjomaeng.2/",
+  blog: "https://blog.naver.com/guri2bottali",
   youtube: "https://www.youtube.com/@jjomaeng2",
   kakao: "https://open.kakao.com/o/gkbqCBUi", // 새 자료 소식 오픈채팅
 };
