@@ -313,16 +313,7 @@
           <div class="article__body">${p.body}</div>
         </div>
 
-${renderPreview(p)}
-        <section class="download" data-reveal>
-          <div>
-            <p class="download__eyebrow">Free Download</p>
-            <h2 class="download__title">${p.file.name}</h2>
-            <p class="download__desc">${p.file.desc}</p>
-            <div class="download__meta"><span>무료 공유</span><span>한정 기간 배포</span><span>${p.series}</span></div>
-          </div>
-          <button class="btn btn--solid" data-download="${p.slug}"><span>자료 다운로드</span><i class="btn__arrow btn__arrow--down"></i></button>
-        </section>
+${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
 
         <nav class="wrap">
           <div class="pager">
@@ -333,13 +324,16 @@ ${renderPreview(p)}
       </article>
     `;
 
-    app.querySelector("[data-download]").addEventListener("click", () => openModal(p));
-    // 왼쪽 사이드: 글 맨 위 / 자료 미리보기(없으면 다운로드 박스)로 이동
+    const dl = app.querySelector("[data-download]");
+    if (dl) dl.addEventListener("click", () => openModal(p, "file"));
+    const vaultBtn = app.querySelector("[data-vault-open]");
+    if (vaultBtn) vaultBtn.addEventListener("click", () => openModal(p, "vault"));
+    // 왼쪽 사이드: 글 맨 위 / 견적 칸(없으면 자료 미리보기, 다운로드 박스)으로 이동
     app.querySelectorAll("[data-jump]").forEach((btn) =>
       btn.addEventListener("click", () => {
         const behavior = reduceMotion ? "auto" : "smooth";
         if (btn.dataset.jump === "top") return window.scrollTo({ top: 0, behavior });
-        const target = app.querySelector(".preview") || app.querySelector(".download");
+        const target = app.querySelector(".vault") || app.querySelector(".preview") || app.querySelector(".download");
         const top = target.getBoundingClientRect().top + scrollY - masthead.offsetHeight - 40;
         window.scrollTo({ top, behavior });
       })
@@ -382,13 +376,93 @@ ${renderPreview(p)}
       </section>`;
   }
 
-  /* ---------- 자료 다운로드 모달 (쿠팡 방문 후 열림) ---------- */
+  function renderDownload(p) {
+    return `
+        <section class="download" data-reveal>
+          <div>
+            <p class="download__eyebrow">Free Download</p>
+            <h2 class="download__title">${p.file.name}</h2>
+            <p class="download__desc">${p.file.desc}</p>
+            <div class="download__meta"><span>무료 공유</span><span>한정 기간 배포</span><span>${p.series}</span></div>
+          </div>
+          <button class="btn btn--solid" data-download="${p.slug}"><span>자료 다운로드</span><i class="btn__arrow btn__arrow--down"></i></button>
+        </section>`;
+  }
+
+  /* ---------- 견적 칸 (흐림 → 쿠팡 방문 → 열림) ---------- */
+  // 한 번 연 글은 같은 브라우저에서 다시 와도 열린 채로 둔다 (저장이 막힌 브라우저면 매번 다시)
+  const vaultKey = (slug) => `jjm-vault-${slug}`;
+  function isVaultOpen(slug) {
+    try {
+      return localStorage.getItem(vaultKey(slug)) === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+  function rememberVault(slug) {
+    try {
+      localStorage.setItem(vaultKey(slug), "1");
+    } catch (e) {}
+  }
+
+  function renderVault(p) {
+    const open = isVaultOpen(p.slug);
+    return `
+      <section class="vault${open ? " is-open" : ""}" data-reveal>
+        <div class="vault__head">
+          <p class="vault__eyebrow">Free File · 무료 공유</p>
+          <h2 class="vault__title" tabindex="-1">${p.file.name}</h2>
+          <p class="vault__desc">${p.file.desc}</p>
+        </div>
+        <div class="vault__wrap">
+          <div class="vault__content"${open ? "" : ' aria-hidden="true"'}>${p.vault}</div>
+          <div class="vault__gate">
+            <p class="vault__gate-text">실제 견적은 쿠팡 한 번 들르면<br />바로 열려요</p>
+            <button type="button" class="btn btn--solid" data-vault-open><span>견적 바로 확인하기</span><i class="btn__arrow btn__arrow--down"></i></button>
+            <p class="vault__gate-note">구매하지 않아도 괜찮아요</p>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  function openVault(post) {
+    rememberVault(post.slug);
+    const box = app.querySelector(".vault");
+    if (!box) return;
+    box.classList.add("is-open");
+    box.querySelector(".vault__content").removeAttribute("aria-hidden");
+    lastFocus = box.querySelector(".vault__title");
+    const top = box.getBoundingClientRect().top + scrollY - masthead.offsetHeight - 24;
+    setTimeout(() => window.scrollTo({ top, behavior: reduceMotion ? "auto" : "smooth" }), reduceMotion ? 0 : 450);
+  }
+
+  /* ---------- 쿠팡 모달 (자료 다운로드 / 견적 보기 공용) ---------- */
   const modal = document.getElementById("modal");
   const coupangBtn = document.getElementById("coupangBtn");
   const downloadBtn = document.getElementById("downloadBtn");
   const step1 = document.getElementById("step1");
   const step2 = document.getElementById("step2");
   let lastFocus = null;
+
+  const MODAL_TEXT = {
+    file: {
+      eyebrow: "Free Download",
+      title: "잠깐, 자료 받기 전에<br />쿠팡 한 번만 들러주세요",
+      step2: "이 창으로 돌아와 자료 받기",
+      desc: "구매하지 않아도 괜찮아요. 방문만 해주시면 자료가 바로 열려요.<br />덕분에 다음 자료도 계속 무료로 만들 수 있어요.",
+      go: "쿠팡 방문하고 자료 받기",
+      done: "자료 다운로드",
+    },
+    vault: {
+      eyebrow: "Free File",
+      title: "잠깐, 견적 보기 전에<br />쿠팡 한 번만 들러주세요",
+      step2: "이 창으로 돌아와 견적 보기",
+      desc: "구매하지 않아도 괜찮아요. 방문만 해주시면 견적이 바로 열려요.<br />덕분에 다음 자료도 계속 무료로 만들 수 있어요.",
+      go: "쿠팡 방문하고 견적 보기",
+      done: "페이지로 돌아가 견적 보기",
+    },
+  };
+  let modalMode = "file";
 
   function setUnlocked(on) {
     downloadBtn.classList.toggle("is-locked", !on);
@@ -397,20 +471,35 @@ ${renderPreview(p)}
     step1.classList.toggle("is-active", !on);
     step1.classList.toggle("is-done", on);
     step2.classList.toggle("is-active", on);
-    coupangBtn.querySelector("span").textContent = on ? "쿠팡 다시 보러 가기" : "쿠팡 방문하고 자료 받기";
+    coupangBtn.querySelector("span").textContent = on ? "쿠팡 다시 보러 가기" : MODAL_TEXT[modalMode].go;
   }
 
   let modalPost = null;
-  function openModal(post) {
+  function openModal(post, mode = "file") {
     modalPost = post;
-    track("file_modal_open", postParams(post));
+    modalMode = mode;
+    const t = MODAL_TEXT[mode];
+    track(mode === "vault" ? "vault_modal_open" : "file_modal_open", postParams(post));
     lastFocus = document.activeElement;
+    modal.querySelector(".modal__eyebrow").textContent = t.eyebrow;
+    document.getElementById("modalTitle").innerHTML = t.title;
+    step2.innerHTML = `<span>02</span>${t.step2}`;
+    modal.querySelector(".modal__desc").innerHTML = t.desc;
+    downloadBtn.querySelector("span").textContent = t.done;
+    downloadBtn.querySelector(".btn__arrow").classList.toggle("btn__arrow--down", mode === "file");
     document.getElementById("modalFile").textContent = `${post.file.name} · ${post.file.desc}`;
     coupangBtn.href = SITE.coupangUrl;
-    downloadBtn.href = post.file.url;
-    // 노션 같은 외부 링크는 새 탭으로 연다
-    downloadBtn.target = "_blank";
-    downloadBtn.rel = "noopener";
+    if (mode === "vault") {
+      // 같은 페이지에서 흐림만 걷는다
+      downloadBtn.href = "#";
+      downloadBtn.removeAttribute("target");
+      downloadBtn.removeAttribute("rel");
+    } else {
+      downloadBtn.href = post.file.url;
+      // 노션 같은 외부 링크는 새 탭으로 연다
+      downloadBtn.target = "_blank";
+      downloadBtn.rel = "noopener";
+    }
     setUnlocked(false);
     modal.hidden = false;
     document.body.classList.add("is-locked");
@@ -426,12 +515,17 @@ ${renderPreview(p)}
   }
 
   coupangBtn.addEventListener("click", () => {
-    track("coupang_click", { ...postParams(modalPost), button_location: "download_modal" });
+    track("coupang_click", { ...postParams(modalPost), button_location: modalMode === "vault" ? "vault_modal" : "download_modal" });
     setTimeout(() => setUnlocked(true), 400);
   });
   downloadBtn.addEventListener("click", (e) => {
     if (downloadBtn.classList.contains("is-locked")) e.preventDefault();
-    else if (downloadBtn.getAttribute("href") === "#") {
+    else if (modalMode === "vault") {
+      e.preventDefault();
+      track("vault_open", postParams(modalPost));
+      openVault(modalPost);
+      closeModal();
+    } else if (downloadBtn.getAttribute("href") === "#") {
       e.preventDefault();
       alert("자료 파일 링크가 아직 연결되지 않았어요. posts.js의 file.url을 채워주세요.");
     } else track("file_download", postParams(modalPost));
