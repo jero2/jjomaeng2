@@ -417,9 +417,7 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
         <div class="vault__wrap">
           <div class="vault__content"${open ? "" : ' aria-hidden="true"'}>${p.vault}</div>
           <div class="vault__gate">
-            <p class="vault__gate-text">실제 견적은 쿠팡 한 번 들르면<br />바로 열려요</p>
             <button type="button" class="btn btn--solid" data-vault-open><span>견적 바로 확인하기</span><i class="btn__arrow btn__arrow--down"></i></button>
-            <p class="vault__gate-note">구매하지 않아도 괜찮아요</p>
           </div>
         </div>
       </section>`;
