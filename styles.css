@@ -456,3 +456,74 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 .figure-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .figure-pair .inline-figure__img { aspect-ratio: 4 / 5; }
 .figure-pair figcaption { grid-column: 1 / -1; }
+
+/* ---------- 견적 칸 (흐림 → 쿠팡 방문 → 열림) ---------- */
+.vault { width: min(1000px, 100% - 2 * var(--gutter)); margin: 0 auto clamp(64px, 8vw, 120px); padding: 48px 60px 52px; background: var(--paper-2); position: relative; }
+.vault::before, .vault::after { content: ""; position: absolute; width: 22px; height: 22px; }
+.vault::before { top: -8px; left: -8px; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+.vault::after { bottom: -8px; right: -8px; border-bottom: 1px solid var(--ink); border-right: 1px solid var(--ink); }
+.vault__eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.vault__title { margin-top: 10px; font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; letter-spacing: -0.045em; line-height: 1.3; outline: none; }
+.vault__desc { margin-top: 6px; font-size: 14px; color: var(--ink-3); }
+.vault__wrap { position: relative; margin-top: 28px; border-top: 1px solid var(--line); }
+.vault__content { font-size: 16px; line-height: 1.85; color: #2a2a2a; padding-top: 28px; max-height: 760px; overflow: hidden; filter: blur(7px); opacity: 0.8; pointer-events: none; transition: filter 0.9s var(--ease-out), opacity 0.9s; }
+.vault.is-open .vault__content { max-height: none; overflow: visible; filter: none; opacity: 1; pointer-events: auto; }
+.vault__gate { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 16px; padding: 96px 20px 0; text-align: center; background: linear-gradient(to bottom, rgba(247, 246, 242, 0.15) 0%, rgba(247, 246, 242, 0.75) 45%, rgba(247, 246, 242, 0.98) 100%); }
+.vault.is-open .vault__gate { display: none; }
+.vault__gate-text { font-size: clamp(18px, 2.2vw, 22px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.45; color: var(--ink); }
+.vault__gate .btn { min-width: 260px; }
+.vault__gate-note { font-size: 12px; color: var(--ink-3); }
+
+.vault__content > * + * { margin-top: 1.1em; }
+.vault__content b { font-weight: 600; color: var(--ink); }
+.vault__content u { text-decoration: none; background: linear-gradient(transparent 62%, var(--mint-soft) 62%); }
+.vault__content h3 { display: flex; align-items: baseline; gap: 12px; margin-top: 2.2em; font-size: clamp(18px, 2vw, 21px); font-weight: 700; letter-spacing: -0.04em; color: var(--heading); line-height: 1.4; }
+.vault__content h3 span { font-size: 13px; font-weight: 500; color: var(--ink-3); font-variant-numeric: tabular-nums; position: relative; }
+.vault__content h3 span::before { content: ""; position: absolute; left: 0; top: -8px; width: 14px; height: 2px; background: var(--mint); }
+.vault__content h3.is-plain { padding-top: 1.4em; border-top: 1px solid var(--hair); }
+.vault-sum { background: var(--paper); padding: 22px 26px; border-left: 2px solid var(--mint); }
+.vault-sum__label { font-size: 11px; letter-spacing: 0.1em; font-weight: 600; color: var(--ink-3); }
+.vault-sum ol { list-style: none; margin-top: 8px; }
+.vault-sum li { position: relative; padding: 6px 0 6px 32px; font-size: 16px; color: var(--ink); }
+.vault-sum li span { position: absolute; left: 0; top: 9px; font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.vault-table { overflow-x: auto; -webkit-overflow-scrolling: touch; background: var(--paper); border-top: 1px solid var(--ink); }
+.vault-table table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.55; }
+.vault-table.is-wide table { min-width: 560px; }
+.vault-table th, .vault-table td { padding: 12px 14px; border-bottom: 1px solid var(--hair); text-align: left; vertical-align: top; white-space: nowrap; }
+.vault-table td:last-child { white-space: normal; }
+.vault-table th { font-weight: 600; color: var(--ink); background: var(--paper-2); }
+.vault-table thead th { font-size: 12px; color: var(--ink-2); }
+.vault-table .is-total th, .vault-table .is-total td { font-weight: 700; color: var(--ink); background: var(--accent-soft); }
+.vault-note { font-size: 14px; color: var(--ink-2); padding-left: 12px; border-left: 1px solid var(--ink); }
+.vault-note b { display: block; margin-bottom: 2px; }
+.vault-tip { background: #fdeef3; padding: 20px 22px; font-size: 15px; }
+.vault-tip p + p { margin-top: 0.7em; }
+.vault-tip__label { font-weight: 700; color: var(--ink); }
+.vault-list, .vault-check { list-style: none; border-top: 1px solid var(--ink); }
+.vault-list li, .vault-check li { position: relative; padding: 10px 0 10px 28px; border-bottom: 1px solid var(--hair); font-size: 15px; color: var(--ink); }
+.vault-list li::before { content: "✦"; position: absolute; left: 0; top: 10px; color: var(--mint); }
+.vault-check li::before { content: ""; position: absolute; left: 0; top: 15px; width: 14px; height: 14px; border: 1px solid var(--ink-3); background: var(--paper); }
+.vault-quote { margin: 1.2em 0 0; padding: 1.2em 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; font-size: clamp(19px, 2.2vw, 24px); font-weight: 700; letter-spacing: -0.045em; color: var(--ink); line-height: 1.4; }
+.vault-quote small { display: block; margin-top: 6px; font-size: 13px; font-weight: 400; color: var(--ink-3); letter-spacing: -0.02em; }
+.vault-small { font-size: 12px; color: var(--ink-3); line-height: 1.7; }
+@media (max-width: 760px) {
+  .vault { padding: 32px 20px 36px; }
+  .vault__content { max-height: 640px; font-size: 15px; }
+  .vault__gate { padding-top: 72px; }
+  .vault__gate .btn { min-width: 0; width: 100%; }
+  .vault-sum { padding: 18px 18px; }
+}
+.vault-lead { font-size: 15px; color: var(--ink-2); }
+.vault__content h4 { margin-top: 1.4em; font-size: 15px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+.vault__content a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.vault-sum.is-cands li { color: var(--ink-3); }
+.vault-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.vault-pick { background: var(--paper); padding: 16px 16px 10px; border-top: 1px solid var(--ink); }
+.vault-pick p { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.vault-pick label { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 15px; color: var(--ink); cursor: pointer; }
+.vault-pick input { appearance: none; -webkit-appearance: none; flex: none; width: 18px; height: 18px; margin: 0; border: 1px solid var(--ink-3); background: var(--paper); display: grid; place-content: center; cursor: pointer; }
+.vault-pick input::after { content: ""; width: 10px; height: 10px; background: var(--mint); transform: scale(0); transition: transform 0.15s; }
+.vault-pick input:checked { border-color: var(--ink); }
+.vault-pick input:checked::after { transform: scale(1); }
+.vault-pick input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (max-width: 760px) { .vault-picks { grid-template-columns: 1fr; } }
