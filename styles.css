@@ -513,3 +513,17 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
   .vault__gate .btn { min-width: 0; width: 100%; }
   .vault-sum { padding: 18px 18px; }
 }
+.vault-lead { font-size: 15px; color: var(--ink-2); }
+.vault__content h4 { margin-top: 1.4em; font-size: 15px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+.vault__content a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; font-weight: 600; }
+.vault-sum.is-cands li { color: var(--ink-3); }
+.vault-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.vault-pick { background: var(--paper); padding: 16px 16px 10px; border-top: 1px solid var(--ink); }
+.vault-pick p { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.vault-pick label { display: flex; align-items: center; gap: 10px; padding: 8px 0; font-size: 15px; color: var(--ink); cursor: pointer; }
+.vault-pick input { appearance: none; -webkit-appearance: none; flex: none; width: 18px; height: 18px; margin: 0; border: 1px solid var(--ink-3); background: var(--paper); display: grid; place-content: center; cursor: pointer; }
+.vault-pick input::after { content: ""; width: 10px; height: 10px; background: var(--mint); transform: scale(0); transition: transform 0.15s; }
+.vault-pick input:checked { border-color: var(--ink); }
+.vault-pick input:checked::after { transform: scale(1); }
+.vault-pick input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+@media (max-width: 760px) { .vault-picks { grid-template-columns: 1fr; } }

@@ -35,6 +35,68 @@ window.POSTS = [
       desc: "지역 고르기 · 사진에서 3개 고르기 · 안 맞는 홀 빼기",
       url: "https://app.notion.com/p/jero2/01-3f9ca52271a880789543d09ae16df1b6",
     },
+    vaultLabel: "자료",
+    vault: `
+      <p class="vault-lead">웨딩홀을 찾기 시작하면 예쁜 곳은 계속 나오고, 저장한 곳만 늘어나더라고요. 저도 처음엔 더 많이 보면 답이 나올 줄 알았는데 오히려 후보를 먼저 줄여두는 게 훨씬 편했어요. 복잡하게 생각하지 말고 아래 순서대로만 해보세요.</p>
+      <div class="vault-sum">
+        <p class="vault-sum__label">웨딩홀 투어 선정 순서</p>
+        <ol>
+          <li><span>01</span><b>지역부터 1~2개 고르기</b></li>
+          <li><span>02</span><b>웨딩홀 사진에서 딱 3개만 고르기</b></li>
+          <li><span>03</span><b>안 맞는 홀부터 빼기</b></li>
+        </ol>
+      </div>
+      <p class="vault-small"><a href="https://link.coupang.com/a/hQwyeSXElM" target="_blank" rel="noopener">이 다이어리</a>에 투어 당일 기준을 적어서 들고 가시면 홀끼리 비교하기가 한결 쉬워집니다.<br />이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+
+      <h3><span>01</span>지역부터 1~2개 고르기</h3>
+      <p>먼저 “어떤 홀이 예쁜지”보다 <u>실제로 보러 다닐 지역</u>부터 줄여보세요.</p>
+      <h4>지도 앱에 저장한 홀이 스무 곳을 넘어갈 때</h4>
+      <p>홀 스타일로 찾기 시작하면 후보가 계속 늘어납니다. 지역을 먼저 정하면 그 안에서만 찾으면 돼서 훨씬 편해요.</p>
+      <p>예랑이 '난 아무 데나 괜찮아'라고 해도 지역은 하객 동선 이야기라 둘이 같이 정하기 좋은 주제입니다. <u>(서로 부모님과 웨딩홀 위치를 꼭 파악해 보세요.)</u></p>
+      <p class="vault-note"><b>이렇게 해보세요</b>“우리 하객은 주로 어디에서 올까?”<br />“역에서 걸어서 몇 분까지 괜찮을까?”<br />— 답이 나오면 구 하나, 또는 역 두세 개로 범위를 적고 그 밖의 홀 저장은 지우기</p>
+      <div class="vault-tip">
+        <p class="vault-tip__label">✕ 이건 잠시 미뤄두세요</p>
+        <p>예쁜 홀부터 잔뜩 저장해두고 지역은 나중에 정하기</p>
+      </div>
+      <p>지역이 정해졌다면 그 밖의 홀은 일단 보류합니다. 웨딩홀을 서울 전체에서 찾는 것과 한두 지역 안에서 찾는 건 후보 수부터 달라져요.</p>
+
+      <h3><span>02</span>웨딩홀 사진에서 딱 3개만 고르기</h3>
+      <p>지역을 좁혀도 예쁜 홀은 여전히 많습니다.</p>
+      <h4>지역 안에서도 예쁜 홀이 여전히 많을 때</h4>
+      <p>이럴 때 ‘내 취향이 뭘까?’ 오래 생각하지 말고, 저장한 사진을 보면서 아래에서 더 끌리는 쪽만 골라보세요.</p>
+      <p>저는 밝은 분위기, 심플한 연출, 장식을 꽉 채우지 않은 쪽이었고, 이 분위기와 너무 먼 곳은 후보에서 뺐습니다.</p>
+      <p class="vault-note"><b>이렇게 해보세요</b>저장한 홀 사진을 한 화면에 모아놓고 공통점을 세 단어로 적기.<br />예) 밝다 / 심플하다 / 너무 화려하지 않다<br />— 세 단어 중 하나라도 정반대인 홀은 투어 리스트에서 빼기</p>
+      <div class="vault-tip">
+        <p class="vault-tip__label">✕ 이건 잠시 미뤄두세요</p>
+        <p>SNS 저장 수나 후기 많은 순으로 투어 리스트 짜기</p>
+      </div>
+      <p>작성하기 어렵다면, 저장한 사진을 보면서 2가지 중 체크를 해보세요.</p>
+      <div class="vault-picks">
+        <div class="vault-pick"><p>① 홀 분위기</p><label><input type="checkbox" data-pick="mood-bright" /><span>밝은 홀</span></label><label><input type="checkbox" data-pick="mood-dark" /><span>어두운 홀</span></label></div>
+        <div class="vault-pick"><p>② 연출</p><label><input type="checkbox" data-pick="deco-simple" /><span>심플한 연출</span></label><label><input type="checkbox" data-pick="deco-rich" /><span>화려한 연출</span></label></div>
+        <div class="vault-pick"><p>③ 공간감</p><label><input type="checkbox" data-pick="space-open" /><span>여백 있는 느낌</span></label><label><input type="checkbox" data-pick="space-full" /><span>꽉 찬 느낌</span></label></div>
+      </div>
+      <p>정답은 없어요. 지금 내가 계속 끌리는 방향을 파악한다고 알아둬도 충분해요.</p>
+
+      <h3><span>03</span>이제 안 맞는 홀부터 빼기</h3>
+      <p>앞에서 정한 지역, 추구미 3가지와 너무 멀다면 후보에서 잠깐 빼봅니다.</p>
+      <p>그리고 실제 투어해보고 싶은 곳만 남겨주세요. (플래너가 있다면 플래너에게 ~~한 취향으로 홀 후보 리스트업해달라고 요청해 보세요.)</p>
+      <div class="vault-sum is-cands">
+        <p class="vault-sum__label">웨딩홀 후보</p>
+        <ol>
+          <li><span>1</span>(마리아쥬 스퀘어)</li>
+          <li><span>2</span>(더채플앳 청담)</li>
+          <li><span>3</span>(더채플앳 논현)</li>
+          <li><span>4</span>(노블발렌티 대치)</li>
+        </ol>
+      </div>
+      <p>여기까지 왔다면 새로운 홀을 더 찾기보다 일단 이 후보부터 확인해보세요.</p>
+
+      <h3 class="is-plain">오늘은 여기까지만</h3>
+      <p>웨딩홀을 <u>한 번에 완벽하게 고를 필요</u>는 없어요. 일단 이것만 해보세요.</p>
+      <p>내 추구미를 완벽하게 설명하지 못해도 <b>“나는 이 쪽을 더 자주 고르는구나”</b> 정도는 보이기 시작합니다.</p>
+      <p class="vault-small">본 콘텐츠의 저작권은 @jjomaeng.2에게 있습니다. 무단 전재, 재배포 및 상업적 이용 시 저작권법에 따라 법적 책임을 물을 수 있습니다.</p>
+    `,
     // 자료 미리보기: 목차, 예시 하나, 흐리게 보여줄 체크칸
     preview: {
       toc: [
@@ -138,7 +200,8 @@ window.POSTS = [
       url: "https://app.notion.com/p/406ca52271a88173a5dbdc9a19d002dc",
     },
     // 글 아래에 흐리게 깔리는 실제 견적. 쿠팡 방문 후 [페이지로 돌아가 견적 보기]를 누르면 열린다.
-    // vault가 있으면 자료 미리보기·다운로드 박스 대신 이 칸을 보여준다.
+    // vault가 있으면 자료 미리보기·다운로드 박스 대신 이 칸을 보여준다. vaultLabel: 버튼·창 문구 (견적/자료)
+    vaultLabel: "견적",
     vault: `
       <div class="vault-sum">
         <p class="vault-sum__label">한눈에 정리</p>

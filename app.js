@@ -328,6 +328,7 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
     if (dl) dl.addEventListener("click", () => openModal(p, "file"));
     const vaultBtn = app.querySelector("[data-vault-open]");
     if (vaultBtn) vaultBtn.addEventListener("click", () => openModal(p, "vault"));
+    bindPicks(p);
     // 왼쪽 사이드: 글 맨 위 / 견적 칸(없으면 자료 미리보기, 다운로드 박스)으로 이동
     app.querySelectorAll("[data-jump]").forEach((btn) =>
       btn.addEventListener("click", () => {
@@ -405,6 +406,28 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
     } catch (e) {}
   }
 
+  const vaultLabel = (p) => p.vaultLabel || "자료";
+  // 받침 있으면 a, 없으면 b (견적이 / 자료가)
+  function josa(word, a, b) {
+    const c = word.charCodeAt(word.length - 1) - 0xac00;
+    return word + (c >= 0 && c <= 11171 && c % 28 !== 0 ? a : b);
+  }
+  // 견적 칸 안 체크칸: 누른 건 이 브라우저에만 저장
+  function bindPicks(p) {
+    app.querySelectorAll("[data-pick]").forEach((el) => {
+      const key = `jjm-pick-${p.slug}-${el.dataset.pick}`;
+      try {
+        el.checked = localStorage.getItem(key) === "1";
+      } catch (e) {}
+      el.addEventListener("change", () => {
+        try {
+          if (el.checked) localStorage.setItem(key, "1");
+          else localStorage.removeItem(key);
+        } catch (e) {}
+      });
+    });
+  }
+
   function renderVault(p) {
     const open = isVaultOpen(p.slug);
     return `
@@ -417,7 +440,7 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
         <div class="vault__wrap">
           <div class="vault__content"${open ? "" : ' aria-hidden="true"'}>${p.vault}</div>
           <div class="vault__gate">
-            <button type="button" class="btn btn--solid" data-vault-open><span>견적 바로 확인하기</span><i class="btn__arrow btn__arrow--down"></i></button>
+            <button type="button" class="btn btn--solid" data-vault-open><span>${vaultLabel(p)} 바로 확인하기</span><i class="btn__arrow btn__arrow--down"></i></button>
           </div>
         </div>
       </section>`;
@@ -451,16 +474,21 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
       go: "쿠팡 방문하고 자료 받기",
       done: "자료 다운로드",
     },
-    vault: {
-      eyebrow: "Free File",
-      title: "잠깐, 견적 보기 전에<br />쿠팡 한 번만 들러주세요",
-      step2: "이 창으로 돌아와 견적 보기",
-      desc: "구매하지 않아도 괜찮아요. 방문만 해주시면 견적이 바로 열려요.<br />덕분에 다음 자료도 계속 무료로 만들 수 있어요.",
-      go: "쿠팡 방문하고 견적 보기",
-      done: "페이지로 돌아가 견적 보기",
-    },
   };
+  // 견적 칸 문구는 글마다 '견적' / '자료' 중 하나 (vaultLabel, 기본 자료)
+  function vaultText(post) {
+    const w = vaultLabel(post);
+    return {
+      eyebrow: "Free File",
+      title: `잠깐, ${w} 보기 전에<br />쿠팡 한 번만 들러주세요`,
+      step2: `이 창으로 돌아와 ${w} 보기`,
+      desc: `구매하지 않아도 괜찮아요. 방문만 해주시면 ${josa(w, "이", "가")} 바로 열려요.<br />덕분에 다음 자료도 계속 무료로 만들 수 있어요.`,
+      go: `쿠팡 방문하고 ${w} 보기`,
+      done: `페이지로 돌아가 ${w} 보기`,
+    };
+  }
   let modalMode = "file";
+  let modalText = MODAL_TEXT.file;
 
   function setUnlocked(on) {
     downloadBtn.classList.toggle("is-locked", !on);
@@ -469,14 +497,15 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
     step1.classList.toggle("is-active", !on);
     step1.classList.toggle("is-done", on);
     step2.classList.toggle("is-active", on);
-    coupangBtn.querySelector("span").textContent = on ? "쿠팡 다시 보러 가기" : MODAL_TEXT[modalMode].go;
+    coupangBtn.querySelector("span").textContent = on ? "쿠팡 다시 보러 가기" : modalText.go;
   }
 
   let modalPost = null;
   function openModal(post, mode = "file") {
     modalPost = post;
     modalMode = mode;
-    const t = MODAL_TEXT[mode];
+    const t = mode === "vault" ? vaultText(post) : MODAL_TEXT.file;
+    modalText = t;
     track(mode === "vault" ? "vault_modal_open" : "file_modal_open", postParams(post));
     lastFocus = document.activeElement;
     modal.querySelector(".modal__eyebrow").textContent = t.eyebrow;
