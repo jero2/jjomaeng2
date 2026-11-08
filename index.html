@@ -38,13 +38,28 @@
     <div class="masthead__bar">
       <a href="#/" class="logo" data-link><svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z"/></svg>쪼맹의 자료공유집</a>
       <nav class="nav">
-        <a href="#/" data-link data-cat="all">Archive</a>
-        <a href="#/?c=hall" data-link data-cat="hall">웨딩홀</a>
-        <a href="#/?c=studio" data-link data-cat="studio">스튜디오</a>
-        <a href="#/?c=prep" data-link data-cat="prep">준비전</a>
+        <a href="#/" data-link data-cat="all">전체</a>
+        <button class="nav__burger" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
       </nav>
     </div>
   </header>
+
+  <!-- 햄버거 메뉴: 오른쪽 서랍 -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__dim" data-drawer-close></div>
+    <aside class="drawer__panel" role="dialog" aria-label="메뉴">
+      <div class="drawer__head">
+        <span class="drawer__label">Menu</span>
+        <button class="drawer__close" type="button" aria-label="메뉴 닫기" data-drawer-close></button>
+      </div>
+      <nav class="drawer__nav">
+        <a href="#/?c=prep" data-link data-cat="prep"><span class="drawer__no">01</span><b>준비전</b><small data-count="prep"></small></a>
+        <a href="#/?c=hall" data-link data-cat="hall"><span class="drawer__no">02</span><b>웨딩홀</b><small data-count="hall"></small></a>
+        <a href="#/?c=studio" data-link data-cat="studio"><span class="drawer__no">03</span><b>스튜디오</b><small data-count="studio"></small></a>
+      </nav>
+      <p class="drawer__foot"><svg class="spark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C12.8 7.2 16.8 11.2 24 12C16.8 12.8 12.8 16.8 12 24C11.2 16.8 7.2 12.8 0 12C7.2 11.2 11.2 7.2 12 0Z"/></svg>쪼맹의 자료공유집</p>
+    </aside>
+  </div>
 
   <main id="app" class="app"></main>
 

@@ -422,7 +422,6 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
   .masthead__top::after { content: ""; position: absolute; left: var(--gutter); right: var(--gutter); bottom: 0; height: 1px; background: var(--hair); }
 .masthead__meta--center { display: none; }
   .nav { gap: 16px; font-size: 13px; }
-  .nav a[data-cat="all"] { display: none; }
   .logo { font-size: 17px; }
   .hero__foot { grid-template-columns: 1fr; }
   .featured { grid-template-columns: 1fr; }
@@ -544,3 +543,38 @@ h1, h2, h3, h4, .highlight, .vault-quote, .featured__title, .post-row__main h3 {
 /* 캡처 이미지(노션 원본 비율 그대로, 잘리지 않게) */
 .inline-figure--shot .inline-figure__img { aspect-ratio: auto; background: none; display: flex; justify-content: center; overflow: visible; }
 .inline-figure--shot .inline-figure__img img { width: auto; max-width: 100%; height: auto; max-height: min(78vh, 760px); object-fit: contain; transform: none; border: 1px solid var(--line); border-radius: 6px; }
+
+/* 메뉴바: 전체 + 햄버거 */
+.nav { align-items: center; }
+.nav__burger { width: 30px; height: 30px; display: inline-flex; flex-direction: column; justify-content: center; align-items: flex-end; gap: 6px; background: none; border: 0; padding: 0; cursor: pointer; }
+.nav__burger span { display: block; height: 1.5px; background: var(--ink); transition: width 0.4s var(--ease); }
+.nav__burger span:first-child { width: 24px; }
+.nav__burger span:last-child { width: 16px; }
+.nav__burger:hover span:last-child, .nav__burger.is-active span:last-child { width: 24px; }
+
+/* 오른쪽 서랍 */
+.drawer { position: fixed; inset: 0; z-index: 85; visibility: hidden; pointer-events: none; transition: visibility 0s linear 0.6s; }
+.drawer.is-open { visibility: visible; pointer-events: auto; transition: none; }
+.drawer__dim { position: absolute; inset: 0; background: rgba(20, 20, 20, 0.32); opacity: 0; transition: opacity 0.5s var(--ease); }
+.drawer.is-open .drawer__dim { opacity: 1; }
+.drawer__panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(78vw, 360px); background: var(--paper); display: flex; flex-direction: column; padding: 22px 28px 28px; transform: translateX(100%); transition: transform 0.6s var(--ease-out); box-shadow: -10px 0 40px rgba(0, 0, 0, 0.06); }
+.drawer.is-open .drawer__panel { transform: none; }
+.drawer__head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.drawer__label { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); }
+.drawer__close { position: relative; width: 30px; height: 30px; background: none; border: 0; cursor: pointer; }
+.drawer__close::before, .drawer__close::after { content: ""; position: absolute; left: 4px; right: 4px; top: 50%; height: 1.5px; background: var(--ink); }
+.drawer__close::before { transform: rotate(45deg); }
+.drawer__close::after { transform: rotate(-45deg); }
+.drawer__nav { display: flex; flex-direction: column; margin-top: 8px; }
+.drawer__nav a { display: grid; grid-template-columns: 34px 1fr auto; align-items: baseline; gap: 8px; padding: 22px 0; border-bottom: 1px solid var(--hair); color: var(--ink-2); opacity: 0; transform: translateX(16px); transition: opacity 0.5s var(--ease), transform 0.6s var(--ease-out), color 0.3s; }
+.drawer.is-open .drawer__nav a { opacity: 1; transform: none; }
+.drawer.is-open .drawer__nav a:nth-child(1) { transition-delay: 0.12s, 0.12s, 0s; }
+.drawer.is-open .drawer__nav a:nth-child(2) { transition-delay: 0.19s, 0.19s, 0s; }
+.drawer.is-open .drawer__nav a:nth-child(3) { transition-delay: 0.26s, 0.26s, 0s; }
+.drawer__nav b { font-size: 22px; font-weight: 600; letter-spacing: -0.04em; }
+.drawer__nav small { font-size: 12px; color: var(--ink-3); }
+.drawer__no { font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.drawer__nav a:hover, .drawer__nav a.is-active { color: var(--ink); }
+.drawer__nav a.is-active b { color: var(--heading); }
+.drawer__foot { margin-top: auto; font-size: 13px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink-2); }
+body.is-drawer { overflow: hidden; }

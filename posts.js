@@ -1213,57 +1213,6 @@ window.POSTS = [
     `,
   },
   {
-    slug: "wedding-hall-3",
-    locked: true, // 준비 중: 목록에 잠금으로만 표시
-    category: "hall",
-    categoryLabel: "웨딩홀",
-    series: "웨딩홀 (7)",
-    title: "최종 2곳에서\n고민될 때 정한 기준",
-    subtitle: "예산 · 주차 · 날짜로 순위 매기기",
-    excerpt: "마음에 드는 홀이 두 곳 남았을 때, 감이 아니라 기준으로 순위를 정한 방법이에요.",
-    date: "2026.10.18",
-    readTime: "3 min",
-    image: "images/ring-hands.jpg",
-    imageAlt: "신랑 손 위, 반지 낀 신부의 손",
-    file: {
-      name: "웨딩홀 최종 비교표",
-      desc: "예산 · 주차 · 날짜 가중치 비교 시트",
-      url: "#",
-    },
-    body: `
-      <p class="lead">둘 다 예쁘고 둘 다 괜찮을 때가 제일 어려워요. 저는 <u>마음은 잠깐 내려두고 조건부터 비교했어요.</u></p>
-
-      <section class="step">
-        <span class="step__no">01</span>
-        <div class="step__body">
-          <p class="step__label">Criteria 1</p>
-          <h3>예산</h3>
-          <p>식대 × 보증 인원에 대관료, 연출 추가금까지 더한 총액으로 비교했어요.</p>
-        </div>
-      </section>
-
-      <section class="step">
-        <span class="step__no">02</span>
-        <div class="step__body">
-          <p class="step__label">Criteria 2</p>
-          <h3>주차</h3>
-          <p>주차 가능 대수, 무료 시간, 대중교통 접근성. 어른들이 제일 많이 물어보시는 부분이에요.</p>
-        </div>
-      </section>
-
-      <section class="step">
-        <span class="step__no">03</span>
-        <div class="step__body">
-          <p class="step__label">Criteria 3</p>
-          <h3>날짜</h3>
-          <p>원하는 달, 원하는 시간대가 남아 있는지. 여기서 자연스럽게 정리되는 경우도 많아요.</p>
-        </div>
-      </section>
-
-      <p>항목별로 점수만 넣으면 순위가 나오는 비교표로 만들어뒀어요.</p>
-    `,
-  },
-  {
     slug: "studio-1",
     locked: true, // 준비 중: 목록에 잠금으로만 표시
     category: "studio",

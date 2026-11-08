@@ -47,6 +47,30 @@
     if (sns) track("sns_click", { sns: sns.dataset.sns });
   });
 
+  /* ---------- 햄버거 메뉴(오른쪽 서랍) ---------- */
+  const drawer = document.getElementById("drawer");
+  const burger = document.querySelector(".nav__burger");
+  function setDrawer(on) {
+    if (!drawer) return;
+    drawer.classList.toggle("is-open", on);
+    drawer.setAttribute("aria-hidden", String(!on));
+    burger.setAttribute("aria-expanded", String(on));
+    document.body.classList.toggle("is-drawer", on);
+  }
+  if (drawer) {
+    drawer.querySelectorAll("[data-count]").forEach((el) => {
+      const n = POSTS.filter((p) => !p.locked && p.category === el.dataset.count).length;
+      el.textContent = n ? `${pad(n)} posts` : "Soon";
+    });
+    burger.addEventListener("click", () => setDrawer(!drawer.classList.contains("is-open")));
+    drawer.addEventListener("click", (e) => {
+      if (e.target.closest("[data-drawer-close], a")) setDrawer(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setDrawer(false);
+    });
+  }
+
   /* ---------- 라우팅 ---------- */
   function parseRoute() {
     const hash = location.hash.replace(/^#/, "") || "/";
@@ -85,12 +109,8 @@
 
   /* ---------- 메인 ---------- */
   function renderHome(cat) {
-    // 공개 글은 최신순, 잠긴 글은 그 아래에 번호순
-    const sorted = [...POSTS].sort((a, b) =>
-      a.locked || b.locked
-        ? !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b)
-        : b.date.localeCompare(a.date) || POSTS.indexOf(b) - POSTS.indexOf(a)
-    );
+    // 목차는 1, 2, 3 순서(올린 순서), 잠긴 글은 맨 아래
+    const sorted = [...POSTS].sort((a, b) => !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b));
     const total = POSTS.filter((p) => !p.locked).length;
     const files = POSTS.filter((p) => !p.locked && (p.vault || p.file)).length;
 
@@ -148,9 +168,9 @@
           <h2>All Articles<small>${pad(total)} posts</small></h2>
           <div class="filter" role="tablist">
             <button data-filter="all">전체</button>
+            <button data-filter="prep">준비전</button>
             <button data-filter="hall">웨딩홀</button>
             <button data-filter="studio">스튜디오</button>
-            <button data-filter="prep">준비전</button>
           </div>
         </div>
         <ul class="post-list">${rows}</ul>
@@ -234,6 +254,10 @@
       row.classList.remove("is-visible");
       row.classList.toggle("is-hidden", !show);
     });
+    // 보이는 글만 01, 02, 03… 으로 다시 번호 매김
+    rows
+      .filter((r) => !r.classList.contains("is-hidden"))
+      .forEach((r, i) => (r.querySelector(".post-row__no").textContent = pad(i + 1)));
     if (!instant) {
       rows
         .filter((r) => !r.classList.contains("is-hidden"))
@@ -242,7 +266,8 @@
   }
 
   function setNavActive(cat) {
-    document.querySelectorAll(".nav a").forEach((a) => a.classList.toggle("is-active", cat != null && a.dataset.cat === cat));
+    document.querySelectorAll(".nav a, .drawer__nav a").forEach((a) => a.classList.toggle("is-active", cat != null && a.dataset.cat === cat));
+    if (burger) burger.classList.toggle("is-active", cat != null && cat !== "all");
   }
 
   const ICON_INSTAGRAM =
