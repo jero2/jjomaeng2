@@ -60,7 +60,7 @@
   /* ---------- 공통 조각 ---------- */
   // 사진 파일이 아직 없으면 선 패턴 커버로 대체한다
   function media(post, size) {
-    const word = post.category === "hall" ? "Wedding Hall" : "Studio";
+    const word = post.category === "hall" ? "Wedding Hall" : post.category === "prep" ? "Wedding Prep" : "Studio";
     const fallback = `<div class="lined"><span class="lined__big">${post.series.replace(/^.*\((\d)\)$/, "No.$1")}</span><span class="lined__word">${word}</span></div>`;
     if (!post.image) return fallback;
     return `<img src="${post.image}" alt="${post.imageAlt}" ${size === "thumb" ? 'loading="lazy"' : ""} data-fallback="${encodeURIComponent(fallback)}" />`;
@@ -89,9 +89,10 @@
     const sorted = [...POSTS].sort((a, b) =>
       a.locked || b.locked
         ? !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b)
-        : b.date.localeCompare(a.date)
+        : b.date.localeCompare(a.date) || POSTS.indexOf(b) - POSTS.indexOf(a)
     );
     const total = POSTS.filter((p) => !p.locked).length;
+    const files = POSTS.filter((p) => !p.locked && (p.vault || p.file)).length;
 
     const rows = sorted
       .map((p) => {
@@ -133,7 +134,7 @@
           <p class="hero__desc" data-reveal><mark>결혼 준비하면서 내 추구미를 알아가는 중.</mark><br />다 챙기진 못해도, 선택 전에 이것만은 보고 가요.</p>
           <div class="hero__stat" data-reveal>
             <div><b>${pad(total)}</b><small>Articles</small></div>
-            <div><b>${pad(total)}</b><small>Free files</small></div>
+            <div><b>${pad(files)}</b><small>Free files</small></div>
           </div>
         </div>
       </section>
@@ -149,6 +150,7 @@
             <button data-filter="all">전체</button>
             <button data-filter="hall">웨딩홀</button>
             <button data-filter="studio">스튜디오</button>
+            <button data-filter="prep">결혼준비</button>
           </div>
         </div>
         <ul class="post-list">${rows}</ul>
@@ -166,7 +168,7 @@
   }
 
   const openPosts = () =>
-    POSTS.filter((p) => !p.locked).sort((a, b) => b.date.localeCompare(a.date));
+    POSTS.filter((p) => !p.locked).sort((a, b) => b.date.localeCompare(a.date) || POSTS.indexOf(b) - POSTS.indexOf(a));
 
   // 추천 글: 전체 화면은 SITE.featured(기본 최신 글), 카테고리 화면은 그 카테고리 최신 글을 작게
   function featuredHTML(cat) {
@@ -308,12 +310,12 @@
         <div class="wrap article">
           <aside class="article__aside">
             <button type="button" data-jump="top"><b>${p.series}</b>✦쪼맹의 자료공유집<i class="arrow"></i></button>
-            <button type="button" data-jump="file"><b>Free file</b>${p.file.name}<i class="arrow"></i></button>
+            ${fileOf(p) ? `<button type="button" data-jump="file"><b>Free file</b>${fileOf(p).name}<i class="arrow"></i></button>` : ""}
           </aside>
           <div class="article__body">${p.body}</div>
         </div>
 
-${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
+${p.vault ? renderVault(p) : p.file ? renderPreview(p) + renderDownload(p) : renderRelated(p)}
 
         <nav class="wrap">
           <div class="pager">
@@ -335,6 +337,7 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
         const behavior = reduceMotion ? "auto" : "smooth";
         if (btn.dataset.jump === "top") return window.scrollTo({ top: 0, behavior });
         const target = app.querySelector(".vault") || app.querySelector(".preview") || app.querySelector(".download");
+        if (!target) return;
         const top = target.getBoundingClientRect().top + scrollY - masthead.offsetHeight - 40;
         window.scrollTo({ top, behavior });
       })
@@ -375,6 +378,24 @@ ${p.vault ? renderVault(p) : renderPreview(p) + renderDownload(p)}
           <p class="preview__more">체크칸과 후보 적는 칸은 자료에서 이어져요</p>
         </div>
       </section>`;
+  }
+
+  // 자료가 없는 글: 함께 보면 좋은 다른 글의 자료로 안내 (related: 그 글의 slug)
+  const relatedOf = (p) => (p.related ? POSTS.find((x) => x.slug === p.related && !x.locked) : null);
+  const fileOf = (p) => p.file || (relatedOf(p) && relatedOf(p).file) || null;
+  function renderRelated(p) {
+    const r = relatedOf(p);
+    if (!r) return "";
+    return `
+        <section class="download" data-reveal>
+          <div>
+            <p class="download__eyebrow">Free File · 함께 보면 좋은 자료</p>
+            <h2 class="download__title">${r.file.name}</h2>
+            <p class="download__desc">${r.file.desc}</p>
+            <div class="download__meta"><span>무료 공유</span><span>한정 기간 배포</span><span>${r.series}</span></div>
+          </div>
+          <a class="btn btn--solid" href="#/post/${r.slug}" data-link><span>자료 보러 가기</span><i class="btn__arrow"></i></a>
+        </section>`;
   }
 
   function renderDownload(p) {
