@@ -531,3 +531,12 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 /* 모바일 가독성 (11/8): 문단 마지막 줄 고르게, 제목은 줄 길이 맞추기 */
 p, li, blockquote, figcaption, td, th { text-wrap: pretty; }
 h1, h2, h3, h4, .highlight, .vault-quote, .featured__title, .post-row__main h3 { text-wrap: balance; }
+
+/* 노션 원고 그대로 옮긴 글 (11/8): 블로그와 같은 강조 */
+.article__body mark.hl { background: var(--mint-soft); color: var(--ink); padding: 0 0.1em; }
+.article__body .ul { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+.article__body .t-gray { color: var(--ink-3); }
+.article__body .t-note { color: var(--ink-3); font-size: 0.9em; font-style: italic; }
+.article__body .t-green { color: var(--heading); }
+.article__body h4 { font-size: 1.08em; font-weight: 700; color: var(--heading); margin-top: 1.8em; }
+.article__body a[target="_blank"] { color: var(--accent); word-break: break-all; }
