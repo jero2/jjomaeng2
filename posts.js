@@ -403,8 +403,8 @@ window.POSTS = [
     excerptHtml: "결혼 준비 시작하기도 전에 고민되는 것들이 참 많잖아요.<br /><mark>저는 웨딩홀보다 플래너를 먼저 계약했답니다..ㅎ</mark>",
     date: "2026.11.08",
     readTime: "4 min",
-    image: "images/planner-1.jpg",
-    imageAlt: "웨딩홀 상담실 책상 위 달력과 모니터",
+    image: "images/prep-planner-1.jpg",
+    imageAlt: "와이즈웨딩 스타일링 프로젝트 화면",
     body: `
       <p><span class="t-gray">예상보다 많은 분들이 봐주셔서,, 급하게 만든</span><br /><b><span class="t-green">시작 전 이렇게 하면 조금 더 편해요..!</span></b><br /><b><mark class="hl">✦ 플래너 편 (+박람회까지)</mark></b></p>
       <p>결혼 준비 시작하기도 전에<br />고민되는 것들이 참 많잖아요.</p>
@@ -509,8 +509,8 @@ window.POSTS = [
     excerptHtml: "근데 요즘 예약할 때 생각보다 치열한 곳이 어딘 줄 아세요..?<br />바로 <mark>스튜디오랑 헤어변형!!!</mark>",
     date: "2026.11.08",
     readTime: "4 min",
-    image: "images/order-1.jpg",
-    imageAlt: "흰 꽃으로 가득 채운 웨딩 포토존",
+    image: "images/prep-order-1.jpg",
+    imageAlt: "스튜디오 인스타그램 피드 화면",
     body: `
       <p><span class="t-gray">예상보다 많은 분들이 봐주셔서,, 급하게 만든</span><br /><b><span class="t-green">시작 전 이렇게 하면 조금 더 편해요..!</span></b><br /><b><mark class="hl">✦ 결혼준비 순서 편 (지금 준비한 순서까지)</mark></b></p>
       <p>결혼 준비 순서 찾아보면<br />보통 이렇게 알려주잖아요.</p>
@@ -604,8 +604,8 @@ window.POSTS = [
     excerptHtml: "채플홀 좋아하시는 예신분들..<br /><mark>아펠가모 선릉</mark>도 한 번 눈여겨보세요.",
     date: "2026.11.08",
     readTime: "5 min",
-    image: "images/apelgamo-1.jpg",
-    imageAlt: "샹들리에 아래 흰 소파가 놓인 아펠가모 선릉 공간",
+    image: "images/w5-01.jpg",
+    imageAlt: "아펠가모 선릉",
     file: {
       name: "아펠가모 선릉 실제 견적",
       desc: "날짜별 견적 3장 비교 · 대관료 포함 항목 · 상담 체크리스트",
@@ -700,15 +700,17 @@ window.POSTS = [
       <p><b><span class="t-green">결혼식 로망은 없는데,</span></b><br /><b><span class="t-green">추구미는 있어요..8-8</span></b></p>
       <p>채플홀 좋아하시는 예신분들..<br />아펠가모 선릉도 한 번 눈여겨보세요.</p>
       <p>저는 노블발렌티 대치처럼<br />웅장하고 밝은 채플홀 분위기를 좋아하는데요.<br />아펠가모 선릉은 또 다른 느낌으로<br />제 취향에 꽤 잘 맞았어요.</p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w5-01.jpg" alt="아펠가모 선릉 사진" loading="lazy" /></div></figure>
       <p>홀도 마음에 들고,<br />하객 동선도 편하고,<br />상담도 만족스러웠던 곳.</p>
       <p>그런데 결론부터 말하면<br /><b>계약은 하지 않았어요.</b></p>
       <p>딱히 큰 단점이 있었던 것도 아닌데<br />왜 계약까지 이어지진 않았을까요?<br />견적까지 비교해 보니<br />생각이 조금 달라지더라고요.</p>
       <section class="step"><span class="step__no">01</span><div class="step__body"><h3>노블발렌티보다 조금 더 따뜻한 채플홀</h3>
-      <figure class="inline-figure" data-reveal><div class="inline-figure__img"><img src="images/apelgamo-2.jpg" alt="리본으로 묶은 분홍 장미 한 송이" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w5-02.jpg" alt="아펠가모 선릉 사진" loading="lazy" /></div></figure>
       <p>아펠가모 선릉은<br />채플홀 특유의 단정함에<br />조금 더 아늑한 분위기가 느껴졌어요.</p>
       <p>이걸 색감으로 표현하자면..</p>
       <p>노블발렌티 대치가<br /><b><mark class="hl">아이보리 + 옐로우 15%</mark></b>라면<br />아펠가모 선릉은<br /><b><mark class="hl">아이보리 + 옐로우 30%</mark></b> 느낌?</p>
       <p><span class="t-note">물론 실제 색상 비율은 아니고</span><br /><span class="t-note">제 눈에 느껴지는 차이예요..ㅎ</span></p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w5-04.jpg" alt="아펠가모 선릉 사진" loading="lazy" /></div></figure>
       <p>노블발렌티가 밝고 웅장한 느낌이라면<br />아펠가모는 조금 더<br />따뜻하고 아늑한 느낌!</p>
       <p>특히 천장 디자인은<br />호불호가 있다고 들었는데<br />저는 생각보다 괜찮더라고요.</p>
       <p>오히려 홀의 전체적인 분위기와<br />잘 어울린다고 느꼈어요.</p>
@@ -735,6 +737,7 @@ window.POSTS = [
       <p>홀도 괜찮고,<br />상담도 만족스러웠는데<br />계약까지 이어질 만큼의<br />결정적인 메리트는 부족했던 것..ㅎ</p>
       </div></section>
       <section class="step"><span class="step__no">04</span><div class="step__body"><h3>괜찮은 홀인데, 계약할 이유는 부족했던 것</h3>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w5-09.jpg" alt="아펠가모 선릉 사진" loading="lazy" /></div></figure>
       <p>사실 아펠가모 선릉은<br />투어하면서 크게 불편하거나<br />마음에 안 들었던 곳은 아니었어요.</p>
       <p>홀 분위기도 괜찮았고,<br />동선도 편했고,<br />상담도 만족스러웠으니까요.</p>
       <p>그런데 여러 웨딩홀을 비교하다 보니<br />생각이 조금 달라지더라고요.</p>
@@ -766,8 +769,8 @@ window.POSTS = [
     excerptHtml: "저는 결혼식 1년 전이면 꽤 여유롭게 준비하는 줄 알았거든요?<br /><mark>날짜 때문에 걱정했는데, 오히려 예상보다 좋은 견적으로 계약했어요!</mark>",
     date: "2026.11.08",
     readTime: "4 min",
-    image: "images/date-1.jpg",
-    imageAlt: "꽃으로 꾸민 웨딩홀 단상",
+    image: "images/w6-01.jpg",
+    imageAlt: "플래너와 나눈 대화",
     related: "wedding-hall-1",
     body: `
       <p><span class="t-gray">🗨️ 비교와 검색 늪에 빠진 사람.. 잇츠 미!</span><br /><span class="t-gray">결혼 준비하는 그대들..</span><br /><span class="t-gray">조끔이라도 고통받지 않길 바라며. 쪼맹팁 대방출 ing</span></p>
@@ -789,6 +792,7 @@ window.POSTS = [
       <section class="step"><span class="step__no">02</span><div class="step__body"><h3>1년 전인데도 원하는 시간은 없을 수 있어요</h3>
       <p>지난 글에서 말씀드린<br />저의 웨딩홀 후보 4곳!</p>
       <p>✦ 노블발렌티 대치<br />✦ 아펠가모 선릉<br />✦ 마리아쥬스퀘어<br />✦ 더채플앳청담</p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w6-01.jpg" alt="플래너와 나눈 대화" loading="lazy" /></div></figure>
       <p>이렇게 추려놓고<br />가능한 날짜를 알아봤는데요.<br />생각보다 예약이 많이 차 있더라고요.</p>
       <p>특히 노블발렌티의 경우,<br />제가 받은 날짜 중 남아 있던 시간이</p>
       <p>✦ 10월 10일 오후 5시<br />✦ 11월 28일 오후 5시<br />✦ 12월 26일 오후 3시 30분</p>
@@ -843,8 +847,8 @@ window.POSTS = [
     excerptHtml: "그러던 중 발견한 <mark>마리아쥬스퀘어</mark>!<br />야외 웨딩이 제 취향이었다면 진짜 여기로 했을 것 같아요.",
     date: "2026.11.08",
     readTime: "5 min",
-    image: "images/mariage-1.jpg",
-    imageAlt: "샹들리에와 흰 꽃으로 꾸민 마리아쥬스퀘어 홀",
+    image: "images/w7-02.jpg",
+    imageAlt: "마리아쥬스퀘어",
     file: {
       name: "마리아쥬스퀘어 실제 견적",
       desc: "날짜별 견적 비교 · 대관료 포함 항목 · 견적 외 비용 · 상담 체크리스트",
@@ -943,10 +947,11 @@ window.POSTS = [
       <p>그러던 중 발견한 마리아쥬스퀘어!<br />강남에서 야외 정원 같은<br />분위기를 느낄 수 있는데<br />견적까지 합리적인 편이라는<br />이야기를 들었어요.</p>
       <p>참고로 저희 커플은..<br />제 1순위는 홀 분위기<br />남자친구 1순위는 견적이랍니다.<br /><span class="t-note">(음식은 0순위! 기본 아닌가요?! ㅎㅎ)</span></p>
       <p>그래서 투어 리스트에 넣었는데요.</p>
-      <figure class="inline-figure figure-pair" data-reveal><div class="inline-figure__img"><img src="images/mariage-3.jpg" alt="웰컴 배너가 걸린 가든 산책로" loading="lazy" /></div><div class="inline-figure__img"><img src="images/mariage-4.jpg" alt="꽃으로 꾸민 웰컴 보드" loading="lazy" /></div></figure>
+      <figure class="inline-figure figure-pair figure-trio" data-reveal><div class="inline-figure__img"><img src="images/w7-01.jpg" alt="마리아쥬스퀘어 사진" loading="lazy" /></div><div class="inline-figure__img"><img src="images/w7-02.jpg" alt="마리아쥬스퀘어 사진" loading="lazy" /></div><div class="inline-figure__img"><img src="images/w7-03.jpg" alt="마리아쥬스퀘어 사진" loading="lazy" /></div></figure>
       <p>와..<br /><b><mark class="hl">야외 웨딩이 제 취향이었다면</mark></b><br /><b><mark class="hl">진짜 여기로 했을 것 같아요.</mark></b></p>
       <p>저도 조금 놀랐습니다..8-8</p>
       <section class="step"><span class="step__no">01</span><div class="step__body"><h3>실내홀인데 야외 정원 느낌이 난다고요..?</h3>
+      <figure class="inline-figure figure-pair" data-reveal><div class="inline-figure__img"><img src="images/w7-04.jpg" alt="마리아쥬스퀘어 사진" loading="lazy" /></div><div class="inline-figure__img"><img src="images/w7-05.jpg" alt="마리아쥬스퀘어 사진" loading="lazy" /></div></figure>
       <p>마리아쥬스퀘어는<br />전체적으로 밝은 화이트톤에<br />정원 같은 분위기가 더해진 홀이에요.</p>
       <p>생화와 조화가 함께 사용된다고 하는데<br />제가 봤을 때는 크게 티가 나지 않았어요.</p>
       <p>특히 좋았던 건<br /><b><mark class="hl">실내홀과 야외 정원의 분위기를</mark></b><br /><b><mark class="hl">함께 느낄 수 있다는 점!</mark></b></p>
@@ -968,6 +973,7 @@ window.POSTS = [
       <p>괜히 든든하더라고요..ㅎ</p>
       </div></section>
       <section class="step"><span class="step__no">03</span><div class="step__body"><h3>마리아쥬스퀘어 견적, 상담까지 만족스러웠던 이유</h3>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w7-11.jpg" alt="마리아쥬스퀘어 사진" loading="lazy" /></div></figure>
       <p>여기는 상담도 정말 만족스러웠어요.</p>
       <p>특히 좋았던 건<br /><b><mark class="hl">어디서 추가금이 발생하는지</mark></b><br /><b><mark class="hl">하나씩 설명해 주셨다는 점!</mark></b></p>
       <p>웨딩홀 상담을 여러 번 받아보니<br />이런 세세한 안내가 얼마나 중요한지<br />점점 느끼게 되더라고요.</p>
@@ -1017,8 +1023,8 @@ window.POSTS = [
     excerptHtml: "저희가 최종 계약한 웨딩홀은 사실 처음 투어 리스트에 없던 곳이에요.<br />홀도 제 취향인데 <mark>견적까지 예산 안으로 들어와 계약했어요!!!!</mark>",
     date: "2026.11.08",
     readTime: "6 min",
-    image: "images/chapel-1.jpg",
-    imageAlt: "꽃과 소파로 꾸민 더채플앳청담 신부대기실",
+    image: "images/w8-01.jpg",
+    imageAlt: "더채플앳청담",
     file: {
       name: "더채플앳청담 실제 견적",
       desc: "날짜별 견적 3장 비교 · 대관료 포함 항목 · 보증인원 운영 · 상담 체크리스트",
@@ -1119,6 +1125,9 @@ window.POSTS = [
       <p>저는 홀 분위기가 1순위,<br />남자친구는 견적이 1순위였거든요.<br />괜히 봤다가<br />눈만 높아지는 거 아닌가 싶더라고요.</p>
       <p>결혼은 둘이 하는 건데<br />제 추구미만 챙길 순 없잖아요.<br />그래서 처음부터 후보에서 제외했어요.</p>
       <p>그런데 이게 웬걸..?</p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-01.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-02.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-03.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p>홀도 제 취향인데<br /><b><mark class="hl">견적까지 예산 안으로 들어와 계약했어요!!!!</mark></b></p>
       <section class="step"><span class="step__no">01</span><div class="step__body"><h3>투어 3일 전에 갑자기 추가한 웨딩홀</h3>
       <p>원래 저희가 투어하기로 했던 웨딩홀은</p>
@@ -1127,6 +1136,7 @@ window.POSTS = [
       <p>그런데 투어하기 3일 전,<br />마리아쥬스퀘어 근처에<br />더채플앳청담이 있다는 게 생각난 거예요.<br />심지어 걸어서 5분 정도 거리..?</p>
       <p><b>어차피 근처까지 가는데</b><br /><b>보기나 해볼까..?</b><br />그렇게 갑자기 예약을 추가했답니다.</p>
       <p>그리고 마음에 들었던 부분 하나!<br />더채플앳청담은 홈페이지에서<br />금액과 예약 관련 정보를<br />바로 확인할 수 있었어요.</p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-04.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p><a href="https://www.thechapel.co.kr/home/index" target="_blank" rel="noopener">https://www.thechapel.co.kr/home/index</a></p>
       <p>웨딩홀은 견적을 알아보려면<br />직접 상담부터 받아야 하는 곳도 많잖아요.</p>
       <p>그런데 여기는 미리 확인할 수 있어서<br /><span class="ul">투어를 결정하기가 훨씬 편했어요.</span></p>
@@ -1139,6 +1149,7 @@ window.POSTS = [
       <p>제가 투어하면서 봤던 홀 중에서도<br /><b><mark class="hl">제 추구미에 가장 가까운 분위기!</mark></b></p>
       <p>특히 좋았던 건<br />커티지홀과 채플홀의 분위기가<br />확실히 다르다는 점이었어요.</p>
       <p><b>✦ 커티지홀 : 단아 &amp; 차분</b></p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-06.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p><b>✦ 채플홀 : 웅장 &amp; 차분</b></p>
       <p>두 홀 모두 층고가 높아서<br />답답한 느낌도 없었고요.</p>
       <p>아.. 둘 다 예쁘네..?<br />그런데 제 마음은<br />커티지홀 쪽으로 조금 더 기울더라고요.</p>
@@ -1147,6 +1158,8 @@ window.POSTS = [
       <p>이럴 수가 있나..<br />홀 분위기만 보고도<br />마음이 꽤 많이 기울었답니다.</p>
       </div></section>
       <section class="step"><span class="step__no">03</span><div class="step__body"><h3>홀도 예쁜데 하객 동선까지..?</h3>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-08.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-09.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p>더채플앳청담은<br />커티지홀과 채플홀,<br />이렇게 두 개의 홀이 있어요.</p>
       <p>그런데 층이 나뉘어 있어서<br />서로 다른 예식의 하객분들이<br />헷갈릴 일이 비교적 적겠더라고요.<br />심지어 식사 공간도 홀에 맞춰 구분되어 있어요.</p>
       <p>✦ 커티지홀과 채플홀 층 분리<br />✦ 홀별 식사 공간 구분<br />✦ 리뉴얼된 깔끔한 공간과 동선</p>
@@ -1155,8 +1168,8 @@ window.POSTS = [
       <p>그런데..<br /><b><mark class="hl">홀도 취향이고, 동선도 좋은데</mark></b><br /><b><mark class="hl">견적까지 괜찮을 수 있을까요..?</mark></b><br />사실 이게 제일 걱정이었거든요.</p>
       </div></section>
       <section class="step"><span class="step__no">04</span><div class="step__body"><h3>더채플앳청담 견적, 생각보다 예산 안이라고요..?</h3>
-      <figure class="inline-figure" data-reveal><div class="inline-figure__img"><img src="images/chapel-2.jpg" alt="상담 테이블 위 꽃 한 송이와 웨딩 매거진" loading="lazy" /></div></figure>
-      <figure class="inline-figure" data-reveal><div class="inline-figure__img"><img src="images/chapel-3.jpg" alt="상담 때 나온 마카롱과 음료" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-10.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-11.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p>사실 제가 더채플앳청담을<br />처음부터 후보에 넣지 않았던 이유는<br />견적 때문이었잖아요.</p>
       <p>근데 막상 상담을 받아보니<br />생각했던 것보다 조건이 괜찮더라고요.</p>
       <p><b><mark class="hl">비쌀 것 같아서 제외했던 홀인데</mark></b><br /><b><mark class="hl">정작 예산 안에서 선택할 수 있었던 것!</mark></b></p>
@@ -1189,8 +1202,10 @@ window.POSTS = [
       <p>그런데 더채플앳청담을 다녀온 순간<br />고민의 구도가 완전히 바뀌었어요.</p>
       <p><b>마리아쥬스퀘어 VS 더채플앳청담</b><br />두 곳을 저희 기준으로 비교하면 이랬어요.</p>
       <p><b>✦ 마리아쥬스퀘어</b></p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-14.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p>예상보다 훨씬 만족스러웠던<br />야외형 밝은 홀<br />분위기도 예쁘고,<br />견적도 마음에 들었던 곳</p>
       <p><b>✦ 더채플앳청담</b></p>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-15.jpg" alt="더채플앳청담 사진" loading="lazy" /></div></figure>
       <p>제가 좋아하는<br />차분한 채플홀 분위기<br />저희 일정과 예산에도 맞았던 곳</p>
       <p>사실 두 곳 모두 장점이 많았어요.<br />마리아쥬스퀘어도<br />지금까지 만족스러웠던 홀 중 하나고요.</p>
       <p>그런데 마지막으로 비교해 보니<br />저희 둘이 가장 중요하게 생각하는 기준이<br />더 잘 맞는 곳이 보이더라고요.</p>

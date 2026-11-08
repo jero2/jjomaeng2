@@ -581,3 +581,9 @@ body.is-drawer { overflow: hidden; }
 
 /* 메뉴바 '전체' 밑줄 없음 */
 .nav a::after { display: none; }
+
+/* 노션 사진: 한 장은 원본 비율, 세 장 묶음은 3칸 */
+.inline-figure--photo .inline-figure__img { aspect-ratio: auto; background: none; display: flex; justify-content: center; }
+.inline-figure--photo .inline-figure__img img { width: auto; max-width: 100%; height: auto; max-height: min(80vh, 780px); object-fit: contain; }
+.figure-trio { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.figure-trio .inline-figure__img { aspect-ratio: 3 / 4; }

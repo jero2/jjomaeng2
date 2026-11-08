@@ -51,8 +51,9 @@ def convert(md, images):
             used.update(n for n in names if n in images)
             if hit:
                 if len(hit) >= 2:
-                    out.append('<figure class="inline-figure figure-pair" data-reveal>' + ''.join(
-                        f'<div class="inline-figure__img"><img src="{s}" alt="{a}" loading="lazy" /></div>' for s, a in hit[:2]) + '</figure>')
+                    cls = 'figure-pair figure-trio' if len(hit) >= 3 else 'figure-pair'
+                    out.append(f'<figure class="inline-figure {cls}" data-reveal>' + ''.join(
+                        f'<div class="inline-figure__img"><img src="{s}" alt="{a}" loading="lazy" /></div>' for s, a in hit[:3]) + '</figure>')
                 else:
                     s, a = hit[0]
                     out.append(f'<figure class="inline-figure" data-reveal><div class="inline-figure__img"><img src="{s}" alt="{a}" loading="lazy" /></div></figure>')
