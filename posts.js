@@ -1228,6 +1228,112 @@ window.POSTS = [
     `,
   },
   {
+    slug: "wedding-hall-summary",
+    category: "hall",
+    categoryLabel: "웨딩홀",
+    series: "웨딩홀 (7)",
+    title: "웨딩홀 총정리",
+    subtitle: "+ 전략적으로 예산 넘는 홀도 후보 추가",
+    excerpt: "제가 최종 계약한 웨딩홀은 사실 처음 투어 후보 선정하지도 않고 포기했던 곳이에요. 바로 더채플앳청담!",
+    excerptHtml: "제가 최종 계약한 웨딩홀은<br />사실 처음 투어 후보 선정하지도 않고 포기했던 곳이에요.<br />바로 <b>더채플앳청담!</b>",
+    date: "2026.11.08",
+    readTime: "7 min",
+    image: "images/w8-03.jpg",
+    imageAlt: "더채플앳청담",
+    body: `
+      <p><span class="t-gray">🗨️ 비교와 검색 늪에 빠진 사람.. 잇츠 미!</span><br /><span class="t-gray">결혼 준비하는 그대들..</span><br /><span class="t-gray">조끔이라도 고통받지 않길 바라며. 쪼맹팁 대방출 ing</span></p>
+      <p><b><span class="t-green">결혼식 로망은 없는데,</span></b><br /><b><span class="t-green">추구미는 있어요..8-8</span></b></p>
+      <p>제가 최종 계약한 웨딩홀은<br />사실 처음 투어 후보 선정하지도 않고 포기했던 곳이에요.<br />바로 <b>더채플앳청담!</b></p>
+      <p>여기저기 견적을 물어봐도<br />저희 예산 밖이라고 생각했던 곳이라..<br />괜히 투어했다가<br />눈만 높아지는 거 아닌가 싶더라고요.<br /><span class="t-note">(결혼은 둘이 하는 건데</span><br /><span class="t-note">제 추구미만 챙길 순 없잖아요..ㅎ)</span></p>
+      <p>그런데 투어 3일 전,<br /><b>보기라도 해보자!!</b><br />하고 급하게 추가했거든요.</p>
+      <p>그 결과..<br /><b><mark class="hl">홀 분위기(제 1순위)와</mark></b><br /><b><mark class="hl">견적(예랑이 1순위)을 모두 만족해서</mark></b><br /><b><mark class="hl">바로 계약했답니다!!!!</mark></b></p>
+      <p>네..?<br />예산 밖이라 생각했던 홀이<br />어떻게 최종 원픽이 되었을까요..?</p>
+      <p>이번 편에서는 이 이야기와 함께<br />웨딩홀 투어를 모두 마치고 느낀<br />쪼맹팁을 총정리해 볼게요❣️</p>
+      <section class="step"><span class="step__no">01</span><div class="step__body"><h3>예산 밖인 홀도 후보에 하나쯤 넣어보세요!</h3>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-01.jpg" alt="더채플앳청담 예식 장면" loading="lazy" /></div></figure>
+      <p>원래 저희가 투어하기로 했던 웨딩홀은</p>
+      <p>✦ 노블발렌티 대치<br />✦ 아펠가모 선릉<br />✦ 마리아쥬스퀘어</p>
+      <p>이렇게 세 곳이었어요.</p>
+      <p>당시 암행투어까지 다녀본 기준으로<br /><b>홀 분위기 원픽은 노블발렌티 대치!</b><br /><b>견적까지 고려하면 마리아쥬스퀘어!</b></p>
+      <p>이 두 곳 중에서 계약하게 되지 않을까<br />생각하고 있었거든요.</p>
+      <p>그런데 투어 3일 전,<br />더채플앳청담이 자꾸 마음에 걸리는 거예요.<br />홀 분위기는 제 추구미인데<br />예산 때문에 아예 제외했던 곳이라..</p>
+      <p>그러다 문득,<br /><b>어차피 투어하는 김에</b><br /><b>보기라도 해보자!!</b><br />싶더라고요.</p>
+      <p>그렇게 하루 4곳을 투어하게 되었답니다.</p>
+      <p>그런데 막상 상담을 받아보니<br />생각했던 것보다 견적이 괜찮은 거예요..?</p>
+      <p>저희는 꼭 토요일 점심 예식을<br />해야 하는 건 아니었거든요.<br />부모님께 받아온 날짜와 시간 안에서<br />가능한 조건을 확인하다 보니</p>
+      <p><b><mark class="hl">예산 밖이라고 생각했던 홀이</mark></b><br /><b><mark class="hl">저희 예산 안으로 들어온 것..!</mark></b></p>
+      <p>물론 모든 홀에서 이런 조건이<br />나오는 건 아니에요!<br />날짜와 시간에 따라<br />견적이 달라질 수 있으니까요.</p>
+      <p>다만 이번에 느낀 건,<br /><b><mark class="hl">예산을 넘겨서 계약하라는 게 아니라,</mark></b><br /><b><mark class="hl">예산 밖이라고 미리 포기하지 말자는 것!</mark></b></p>
+      <p><span class="ul">정말 마음에 드는 홀이라면</span><br /><span class="ul">내가 가능한 날짜와 시간에</span><br /><span class="ul">어떤 견적이 나오는지</span><br /><span class="ul">한 번쯤 확인해 보세요.</span><br /><span class="t-note">(물론 예산은 지키면서요!!)</span></p>
+      <p>알아보지도 않고 포기할 뻔한 사람..<br />잇츠 미..ㅎ</p>
+      <p><span class="t-note">더채플앳청담의 자세한 견적과 장단점은</span><br /><span class="t-note">별도 투어 후기에 남겨뒀어요!</span><br /><a href="#/post/wedding-hall-chapel" data-link>https://jero2.github.io/jjomaeng2/#/post/wedding-hall-chapel</a></p>
+      </div></section>
+      <section class="step"><span class="step__no">02</span><div class="step__body"><h3>투어 전, 각자의 1순위부터 정해보세요!</h3>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-03.jpg" alt="더채플앳청담 채플홀" loading="lazy" /></div></figure>
+      <p>이건 제가 정말 강조하고 싶어요.</p>
+      <p>웨딩홀에서 중요하게 생각하는 기준이<br />신랑신부마다 다를 수 있잖아요.</p>
+      <p>✦ 홀 분위기<br />✦ 견적<br />✦ 식사<br />✦ 주차<br />✦ 층고와 공간감<br />✦ 하객 동선<br />등등등..</p>
+      <p>저희를 예시로 들면,<br /><b>제 1순위는 홀 분위기 🤍</b><br /><b>예랑이 1순위는 견적 💸</b></p>
+      <p>저는 채플홀 특유의 분위기가 중요했고<br />예랑이는 합리적인 금액이 중요했어요.</p>
+      <p>그런데 여기서 중요한 건!<br /><b><mark class="hl">1순위만 정하는 게 아니라</mark></b><br /><b><mark class="hl">어디까지 양보할 수 있는지도 정하는 것.</mark></b></p>
+      <p>예를 들어 저는<br />채플홀이 가장 좋았지만<br />밝고 따뜻한 분위기의 홀까지는 괜찮았어요.</p>
+      <p>예랑이는 저렴할수록 좋지만<br />정해둔 예산 안이라면 수용할 수 있었고요.</p>
+      <p>예산이 4,000만 원이라면<br />3,999만 원까지는 괜찮다!<br />이런 식으로요.</p>
+      <p>그래서 마지막에<br />마리아쥬스퀘어와 더채플앳청담을 고민할 때도<br />서로의 기준을 놓고 비교할 수 있었어요.</p>
+      <p>사실 예랑이가<br />제가 중요하게 생각하는 홀 분위기를<br />어느 정도 수용해 준 덕분이기도 해요.</p>
+      <p>그래서 저도 고마운 마음에<br />웨딩밴드나 다른 항목에서는<br />쪼끔 덜 욕심내려고 하고 있답니다..ㅎ</p>
+      <p><b><span class="ul">1순위가 달라도</span></b><br /><b><span class="ul">서로의 기준이 겹치는 곳은 있더라고요.</span></b></p>
+      <p>그리고 참고로!<br />저는 식사도 중요하지만<br />제 기준에서는 기본 이상이면 괜찮았어요.</p>
+      <p>하객으로 결혼식 다니면서<br />'뷔페치고 괜찮다~' 싶은 곳은 있었는데<br />엄청엄청 맛있어서 오래 기억에 남은 곳은<br />많지 않았거든요.</p>
+      <p>물론 하객분들을 초대하는 자리니까<br />식사 만족도는 기본적으로 중요하죠!<br />적당히, 괜찮으면 만족으로 생각했어요.</p>
+      </div></section>
+      <section class="step"><span class="step__no">03</span><div class="step__body"><h3>홀 후보와 투어 순서도 중요하더라고요</h3>
+      <p><a href="#/post/wedding-hall-1" data-link>https://jero2.github.io/jjomaeng2/#/post/wedding-hall-1</a><br />지난 편에서 후보 줄이는 방법을<br />자세하게 남겼었는데요.<br />실제 투어까지 마치고 나니<br />추가로 추천하고 싶은 게 생겼어요.</p>
+      <p><b><span class="t-green">✦ ① 지역은 1~2개로 좁히기</span></b><br />지역을 먼저 정하면<br />후보도 줄고 투어 동선도 편해져요.</p>
+      <p><b><span class="t-green">✦ ② 내 웨딩홀 추구미 3가지 정하기</span></b><br />예쁜 홀을 전부 후보에 넣기보다<br />내가 좋아하는 분위기를 정해보세요.<br />저는 따뜻한 분위기, 심플한 연출,<br />여백이 느껴지는 공간이었어요.</p>
+      <p><b><span class="t-green">✦ ③ 안 맞는 홀은 빼고, 예산 밖 홀도 하나쯤!</span></b><br />내 추구미와 맞지 않는 곳은 제외하되<br />정말 마음에 드는 홀이라면<br />실제 견적은 확인해 보기!</p>
+      <p><b><span class="t-green">✦ ④ 가능하다면 암행투어 가보기</span></b><br />하객 입장으로 미리 방문해 보면<br />사진에서는 보이지 않던 부분도<br />확인할 수 있어요.<br /><span class="t-note">(방문 가능한 범위에서 조심스럽게요!)</span><br />바쁘다면 생략해도 괜찮아요.</p>
+      <p><b><span class="t-green">✦ ⑤ 가장 마음에 드는 홀은 마지막에 투어하기</span></b><br />이건 제가 다시 투어한다면<br />해보고 싶은 방법이에요.</p>
+      <p>처음 홀을 볼 때는<br />뭘 확인해야 할지 감이 잘 안 오더라고요.<br />홀 분위기에 감탄하다 보면<br />다른 조건은 놓치기 쉽고요..ㅎ</p>
+      <p>그래서 가능하다면<br />상대적으로 중요도가 낮은 홀부터 보고,<br /><b><mark class="hl">가장 마음에 드는 홀은 마지막에!</mark></b></p>
+      <p>그때쯤이면 비교 기준이 생겨서<br />조금 더 확신 있게<br />결정할 수 있지 않을까요?!</p>
+      <p>물론 투어 가능 시간과 이동 동선에 따라<br />조정하시면 좋을 것 같아요.</p>
+      </div></section>
+      <section class="step"><span class="step__no">04</span><div class="step__body"><h3>실제 홀 투어에서는 역할을 나눠보세요!</h3>
+      <figure class="inline-figure inline-figure--photo" data-reveal><div class="inline-figure__img"><img src="images/w8-09.jpg" alt="더채플앳청담 포토테이블" loading="lazy" /></div></figure>
+      <p>저도 투어 전에<br />체크리스트를 엄청 찾아보고 갔거든요.</p>
+      <p>생화 장식인지,<br />신부 전용 화장실이 있는지,<br />ATM과 엘리베이터는 몇 개인지 등등..</p>
+      <p>근데 막상 가니까 정신이 없어서<br />전부 확인하기 어렵더라고요.<br /><span class="t-note">(소심ST는 질문도 쉽지 않았던 것..ㅎ)</span></p>
+      <p>그래서 다시 투어한다면<br /><b>분석가 VS 하객!</b><br />이렇게 역할을 나눠볼 것 같아요.</p>
+      <h4>✦ 분석가 역할</h4>
+      <p>꼼꼼하게 비교하는 걸 잘하는 사람이 맡기!</p>
+      <p>✦ 견적과 추가 비용<br />✦ 보증인원과 계약 조건<br />✦ 주차 및 편의시설</p>
+      <p>큰돈 쓰고 결혼하는 건데<br />이 정도는 확인해 봐도 되잖아요!</p>
+      <p>여유가 된다면,<br />✦ 혼주 대기실과 이용 동선</p>
+      <p>혼주 대기실이 양가별로 구분되어<br />부모님들이 편하게 이용할 수 있는지도<br />여유가 된다면 확인해 보세요.</p>
+      <h4>✦ 하객 역할</h4>
+      <p>실제로 하객으로 방문했다고 생각하고 보기!</p>
+      <p>✦ 웨딩홀 찾아오는 길<br />✦ 주차 후 예식장까지의 동선<br />✦ 로비와 예식홀 입구<br />✦ 연회장으로 이동하는 동선</p>
+      <p>결혼식의 주인공은 신랑신부지만<br />하객분들이 훨씬 많잖아요.<br />그래서 실제 하객 입장으로<br />공간을 살펴보면 좋겠더라고요.</p>
+      <p>그리고 가장 중요한 건!<br /><b><mark class="hl">본인 1순위는 본인이 챙기기!</mark></b></p>
+      <p>조끔 T 같은 생각일 수도 있지만..ㅎ<br />내가 중요하게 생각하는 부분은<br />내가 가장 정확하게 알잖아요.</p>
+      <p>저는 홀 분위기,<br />예랑이는 견적!<br />각자 그 부분을 집중해서 확인하고<br />마지막에 서로의 의견을 합쳐보는 거죠.</p>
+      <p><b><mark class="hl">각자 중요하게 보는 건 달라도</mark></b><br /><b><mark class="hl">결정은 둘이 함께하는 것!</mark></b></p>
+      <p>이 기준은 앞으로<br />스튜디오나 웨딩밴드를<br />고를 때도 필요할 것 같아요.</p>
+      </div></section>
+      <h2>✿ܓ 웨딩홀 투어 총정리</h2>
+      <p>이렇게 저의 웨딩홀 투어 이야기도<br />모두 마무리되었답니다!</p>
+      <p>다시 고른다면<br />이 순서로 준비할 것 같아요.</p>
+      <p><b><span class="t-green">① 서로의 1순위와 양보 범위 정하기</span></b><br /><b><span class="t-green">② 지역과 웨딩홀 추구미 좁히기</span></b><br /><b><span class="t-green">③ 예산 밖 추구미 홀도 하나쯤 확인하기</span></b><br /><b><span class="t-green">④ 가능하다면 암행투어 가보기</span></b><br /><b><span class="t-green">⑤ 실제 투어에서 역할 나눠 비교하기</span></b><br /><b><span class="t-green">⑥ 서로의 1순위·날짜의 교집합 찾기</span></b></p>
+      <p>처음에는 예쁜 홀을 찾는 게<br />제일 어려운 줄 알았거든요.</p>
+      <p>그런데 막상 다녀보니<br /><b><span class="ul">내 마음에 드는 홀과</span></b><br /><b><span class="ul">우리 둘 다 만족하는 홀은</span></b><br /><b><span class="ul">조금 다를 수 있더라고요.</span></b></p>
+      <p>저희는 다행히 그 교집합을 찾았고,<br />심지어 처음에는 예산 밖이라 생각해서<br />후보에도 넣지 않았던 곳이었어요!</p>
+      <p>그러니 여러분들도<br /><b><mark class="hl">마음에 드는 홀이 있다면</mark></b><br /><b><mark class="hl">예산 밖이라고 미리 포기하지 말고</mark></b><br /><b><mark class="hl">가능한 날짜의 견적부터 확인해 보세요.</mark></b></p>
+      <p>조끔은 덜 헤매고,<br />조금은 더 확신 있게<br />원픽을 찾으실 수 있길 바라요❣️</p>
+      <p>이렇게 웨딩홀편은 모두 마쳤습니다!<br /><b>다음 챕터는</b><br /><b>머리 싸매고 고른, 스튜디오로</b><br /><b>곧 돌아올게요.. 투비컨티뉴..ㅎ</b></p>
+    `,
+  },
+  {
     slug: "studio-1",
     locked: true, // 준비 중: 목록에 잠금으로만 표시
     category: "studio",
