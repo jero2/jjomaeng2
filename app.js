@@ -112,7 +112,6 @@
     // 목차는 1, 2, 3 순서(올린 순서), 잠긴 글은 맨 아래
     const sorted = [...POSTS].sort((a, b) => !!a.locked - !!b.locked || POSTS.indexOf(a) - POSTS.indexOf(b));
     const total = POSTS.filter((p) => !p.locked).length;
-    const files = POSTS.filter((p) => !p.locked && (p.vault || p.file)).length;
 
     const rows = sorted
       .map((p) => {
@@ -145,7 +144,6 @@
           <a href="${SITE.kakao}" target="_blank" rel="noopener" data-sns="kakao" aria-label="카카오톡 오픈채팅">${ICON_CHAT}<span>새로운 자료 소식을 안내드려요</span></a>
         </div>
         <p class="hero__compact">직접 해보고, 미리 알면 좋을 것만 나눠요.</p>
-        <p class="hero__eyebrow" data-reveal>Wedding Archive · Vol. 01</p>
         <h1 class="hero__title" data-reveal-split>
           <span class="split"><span class="thin">직접 해보고,</span></span>
           <span class="split"><span>미리 알면 좋을 것<span class="thin">만 나눠요.</span></span></span>
@@ -154,7 +152,6 @@
           <p class="hero__desc" data-reveal><mark>결혼 준비하면서 내 추구미를 알아가는 중.</mark><br />다 챙기진 못해도, 선택 전에 이것만은 보고 가요.</p>
           <div class="hero__stat" data-reveal>
             <div><b>${pad(total)}</b><small>Articles</small></div>
-            <div><b>${pad(files)}</b><small>Free files</small></div>
           </div>
         </div>
       </section>
