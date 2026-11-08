@@ -343,11 +343,27 @@ ${p.vault ? renderVault(p) : p.file ? renderPreview(p) + renderDownload(p) : ren
       })
     );
     // 문장이 끝날 때마다 줄바꿈 (PC·폰 모두). 말줄임표 ..는 이어 쓰고, ..ㅎ 뒤에서는 바꾼다
-    app.querySelectorAll(".article__body p:not(.step__label):not(.result__label):not(.highlight)").forEach((el) => {
+    app.querySelectorAll(".article__body p:not(.step__label):not(.result__label):not(.highlight), .vault__content p:not(.vault-small):not(.vault-sum__label):not(.vault-tip__label)").forEach((el) => {
       el.innerHTML = el.innerHTML.replace(/([가-힣][.?!]|\.\.ㅎ)\s+(?=[^\s<])/g, "$1<br />");
     });
+    // 폰에서 문장 마지막 줄에 짧은 단어 하나만 남지 않게: 문장 끝 단어를 앞 단어와 붙인다
+    noOrphans(app.querySelectorAll(".article__body p, .article__body li, .article__body blockquote, .article__body figcaption, .vault__content p, .vault__content li"));
     app.querySelectorAll(".article__body > *").forEach((el) => {
       if (!el.hasAttribute("data-reveal")) el.setAttribute("data-reveal", "");
+    });
+  }
+
+  function noOrphans(blocks) {
+    blocks.forEach((block) => {
+      const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) nodes.push(walker.currentNode);
+      nodes.forEach((node) => {
+        const next = node.nextSibling;
+        const atEnd = !next || next.nodeName === "BR";
+        if (!atEnd || node.parentNode !== block) return;
+        node.textContent = node.textContent.replace(/(\S)\s+(\S{1,6})(\s*)$/, "$1\u00a0$2$3");
+      });
     });
   }
 

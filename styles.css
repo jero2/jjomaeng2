@@ -527,3 +527,7 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 .vault-pick input:checked::after { transform: scale(1); }
 .vault-pick input:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 @media (max-width: 760px) { .vault-picks { grid-template-columns: 1fr; } }
+
+/* 모바일 가독성 (11/8): 문단 마지막 줄 고르게, 제목은 줄 길이 맞추기 */
+p, li, blockquote, figcaption, td, th { text-wrap: pretty; }
+h1, h2, h3, h4, .highlight, .vault-quote, .featured__title, .post-row__main h3 { text-wrap: balance; }
