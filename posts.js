@@ -405,69 +405,6 @@ window.POSTS = [
     readTime: "4 min",
     image: "images/planner-1.jpg",
     imageAlt: "웨딩홀 상담실 책상 위 달력과 모니터",
-    file: {
-      name: "플래너 계약 전 체크리스트",
-      desc: "미감 확인법 · 동행 vs 비동행 · 박람회 가기 전 준비",
-      url: "#",
-    },
-    vaultLabel: "자료",
-    vault: `
-      <p class="vault-lead">플래너는 꼭 필요한지, 동행이 좋을지, 박람회는 가야 하는지. 저도 처음엔 하나도 몰랐어요. 직접 비교하고 경험한 것만 정리했어요.</p>
-      <div class="vault-sum">
-        <p class="vault-sum__label">플래너 계약 전 이 4가지</p>
-        <ol>
-          <li><span>01</span><b>플래너님 미감이 나와 맞는지</b></li>
-          <li><span>02</span><b>동행·비동행 중 내 성향에 맞는 건 뭔지</b></li>
-          <li><span>03</span><b>플래너 비용과 제휴 혜택을 합쳐도 합리적인지</b></li>
-          <li><span>04</span><b>어디까지 함께 준비해 주시는지</b></li>
-        </ol>
-      </div>
-
-      <h3><span>01</span>미감이 나와 맞는지 확인하기</h3>
-      <p>아무리 유명한 업체를 많이 알고 계셔도 제가 원하는 스타일을 이해하지 못하면 추천받는 의미가 없잖아요.</p>
-      <p class="vault-note"><b>이렇게 해보세요</b>플래너님 인스타그램을 먼저 봐보세요. 어떤 스타일을 좋아하시는지, 주로 어떤 분위기의 업체를 추천하시는지 피드에서 힌트를 얻을 수 있어요.<br />— 미감을 잘 모르겠다면 사진들이 전체적으로 잘 정돈된 느낌인지부터 보기</p>
-      <div class="vault-tip">
-        <p class="vault-tip__label">💘 팁!</p>
-        <p>피드가 예쁘다고 무조건 나와 맞는 건 아니에요. <b>내가 좋아하는 사진을 보여드렸을 때 어떤 업체를 추천해 주시는지</b> 꼭 확인해 보세요.</p>
-      </div>
-
-      <h3><span>02</span>동행 vs 비동행, 내 성향 체크</h3>
-      <p>제가 비교했던 동행 상품은 보통 4번 정도 주요 일정에 함께해 주는 구성이었어요.</p>
-      <ul class="vault-list">
-        <li>드레스 투어</li>
-        <li>스튜디오 촬영</li>
-        <li>촬영 드레스 가봉</li>
-        <li>본식 드레스 가봉</li>
-      </ul>
-      <p class="vault-small">동행 횟수와 일정은 업체마다 달라요.</p>
-      <p>나는 어느 쪽에 더 가까운지 체크해 보세요.</p>
-      <div class="vault-picks">
-        <div class="vault-pick"><p>① 비용 vs 시간</p><label><input type="checkbox" data-pick="cost-time" /><span>돈을 조금 더 쓰더라도 시간과 마음의 부담을 덜고 싶다</span></label><label><input type="checkbox" data-pick="cost-save" /><span>직접 챙기는 수고를 감수하고 비용을 줄이고 싶다</span></label></div>
-        <div class="vault-pick"><p>② 일정 관리</p><label><input type="checkbox" data-pick="plan-help" /><span>중요한 일정마다 경험자가 옆에 있으면 든든하다</span></label><label><input type="checkbox" data-pick="plan-self" /><span>일정 관리할 때 오히려 짜릿함을 느낀다</span></label></div>
-      </div>
-      <p>각 질문의 첫 번째 답이 많으면 동행, 두 번째 답이 많으면 비동행도 충분히 좋은 선택이에요. 저는 플래너비를 더 내더라도 동행을 골랐어요. 본식 부케 서비스(부케도 20~30만원 정도 들어요)가 포함된 것까지 생각하니 덜 부담스럽더라고요.</p>
-
-      <h3><span>03</span>박람회 가기 전, 딱 하나만 준비한다면</h3>
-      <p>한 번쯤 가보는 거 추천해요. 단, 마음가짐이 중요해요.</p>
-      <p class="vault-note"><b>이 마음으로 가보세요</b>당일 혜택은 포기한다.<br />오늘은 무조건 계약하지 않는다!</p>
-      <p><b>원하는 홀 분위기 정도만 알고 가면</b>, 미감 좋은 플래너님이 홀과 어울리는 스드메 업체까지 함께 리스트업해 주셨어요. “아, 이 플래너님이 내 취향을 이해하시는구나!” 싶은 느낌이 바로 이때 와요.</p>
-      <p>상담할 때는 이렇게 물어봤어요. <b>“이 사진이 정말 제 스타일인데, 이 정도 퀄리티는 얼마 정도 드나요?”</b></p>
-
-      <h3 class="is-plain">계약 전 마지막 체크</h3>
-      <ul class="vault-check">
-        <li>플래너님 <b>인스타그램</b>에서 추천하시는 분위기를 봤다</li>
-        <li><b>내가 좋아하는 사진</b>을 보여드리고 추천 업체를 들어봤다</li>
-        <li><b>동행·비동행</b> 중 내 성향을 정했다</li>
-        <li>플래너 비용과 <b>제휴 혜택</b>을 합쳐서 비교했다</li>
-        <li>웨딩홀 · 웨딩밴드 · 예복 등 <b>어디까지 도와주시는지</b> 확인했다</li>
-        <li>최소 두세 분은 <b>비교</b>해 봤다</li>
-      </ul>
-
-      <h3 class="is-plain">오늘은 여기까지만</h3>
-      <p>저도 박람회에서 처음 만난 플래너님을 두고 세 분을 더 알아봤어요. 그런데 돌고 돌아 결국 처음 그분이었어요.</p>
-      <p><b>“이 플래너님이 내 취향을 이해하시나?”</b> 이 질문 하나만 들고 가도 훨씬 덜 헤매요.</p>
-      <p class="vault-small">본 콘텐츠의 저작권은 @jjomaeng.2에게 있습니다. 무단 전재, 재배포 및 상업적 이용 시 저작권법에 따라 법적 책임을 물을 수 있습니다.</p>
-    `,
     body: `
       <p><span class="t-gray">예상보다 많은 분들이 봐주셔서,, 급하게 만든</span><br /><b><span class="t-green">시작 전 이렇게 하면 조금 더 편해요..!</span></b><br /><b><mark class="hl">✦ 플래너 편 (+박람회까지)</mark></b></p>
       <p>결혼 준비 시작하기도 전에<br />고민되는 것들이 참 많잖아요.</p>
@@ -480,13 +417,14 @@ window.POSTS = [
       <p>처음에는 저도<br />워크인으로 준비할지,<br />플래너와 함께할지 고민했어요.</p>
       <p>이것저것 비교해 봤는데<br />제가 알아본 조건에서는<br />아직 플래너를 통해 진행하는 게<br />금액적으로 더 유리하더라고요.</p>
       <p>이해하기 쉽게 비유하자면,<br /><b><mark class="hl">워크인 = 소매</mark></b><br /><b><mark class="hl">플래너 = 도매</mark></b><br />이런 느낌이랄까요..?</p>
-      <figure class="inline-figure" data-reveal><div class="inline-figure__img"><img src="images/planner-2.jpg" alt="상담 때 나온 차와 디저트" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-planner-1.jpg" alt="와이즈웨딩 스타일링 프로젝트 컬렉션 화면" loading="lazy" /></div></figure>
       <p>물론 무조건 플래너가 저렴하다는 건 아니에요!<br />업체별 제휴 조건과 플래너 비용까지<br />함께 비교해 보는 게 중요하답니다.</p>
       <p>그런데 저는 금액 외에도<br />플래너가 필요했던 이유가 있어요.</p>
       <p>제가 원래 업체를 하나 고르더라도<br />직접 찾아보고 비교해야<br />직성이 풀리는 타입이거든요.</p>
       <p>그렇다고 모든 결정을<br />혼자 하고 싶었던 건 아니었어요.<br />스드메뿐만 아니라<br />결혼 준비 전반을 이야기할 수 있는<br />경험자가 필요했달까요?<br />(어쩌다 보니 제가 주변에서<br />가장 먼저 결혼하는 사람이어서요..ㅎ)</p>
       <p>그렇게 플래너님들을 알아보다가<br /><b>한 가지 중요한 걸</b> 깨달았어요.</p>
       <p><b><mark class="hl">플래너 고를 때 이건 필수!!!</mark></b><br /><b><mark class="hl">미감이 나와 맞아야 해요!!!!</mark></b><br />대.대.강.조.</p>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-planner-2.jpg" alt="플래너 업체 인스타그램 피드 화면" loading="lazy" /></div></figure>
       <p>아무리 유명한 업체를 많이 알고 계셔도<br />제가 원하는 스타일을 이해하지 못하면<br />추천받는 의미가 없잖아요.</p>
       <p>생각해 보면 결혼식 추구미도<br />사람마다 정말 다르거든요.</p>
       <p>✦ 러블리한 디즈니 공주<br />✦ 클래식하고 단아한 공주<br />✦ 화려한 왕실 공주<br />✦ 우아한 왕비<br />✦ 키치하고 유니크한 결혼식<br />등등등..<br />공주도 이렇게 종류가 많을 일인가..ㅎ</p>
@@ -497,6 +435,9 @@ window.POSTS = [
       <h4>✦ 여기서 쪼맹팁!</h4>
       <p>플래너님 인스타그램을 꼭 봐보세요.<br />어떤 스타일을 좋아하시는지,<br />주로 어떤 분위기의 업체를 추천하시는지<br />생각보다 피드에서 힌트를 얻을 수 있어요.</p>
       <p>미감을 잘 모르겠다면?<br />사진들이 전체적으로<br />잘 정돈된 느낌인지부터 살펴봐도 좋아요.</p>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-planner-2.jpg" alt="플래너 업체 인스타그램 피드 화면" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-planner-4.jpg" alt="스냅 업체 인스타그램 피드 화면" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-planner-5.jpg" alt="드레스 업체 인스타그램 피드 화면" loading="lazy" /></div></figure>
       <p>물론 피드가 예쁘다고<br />무조건 나와 잘 맞는 건 아니니,<br /><b><mark class="hl">내가 좋아하는 사진을 보여드렸을 때</mark></b><br /><b><mark class="hl">어떤 업체를 추천해 주시는지!</mark></b><br />이걸 꼭 확인해 보세요.</p>
       </div></section>
       <section class="step"><span class="step__no">02</span><div class="step__body"><h3>동행 vs 비동행, 저는 동행이요!</h3>
@@ -529,7 +470,7 @@ window.POSTS = [
       <section class="step"><span class="step__no">04</span><div class="step__body"><h3>웨딩박람회, 가? 말아?</h3>
       <p>저는 한 번쯤 가보는 거 추천해요!<br />단, 마음가짐이 중요해요.</p>
       <p><b><mark class="hl">당일 혜택은 포기한다.</mark></b><br /><b><mark class="hl">오늘은 무조건 계약하지 않는다!</mark></b><br />이 마음으로 가보세요..ㅎ</p>
-      <figure class="inline-figure" data-reveal><div class="inline-figure__img"><img src="images/planner-3.jpg" alt="상담 테이블 위 꽃 한 송이와 웨딩 매거진" loading="lazy" /></div></figure>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-planner-6.jpg" alt="웨딩 박람회 안내 화면" loading="lazy" /></div></figure>
       <p>저는 와이즈웨딩 박람회를 다녀왔는데요.<br />처음에는 그냥<br />어떤 업체들이 있는지 알아보려고 갔어요.<br />그런데 생각보다 얻은 게 많더라고요.</p>
       <p>✔️아, 내가 원하는 결혼식은 이런 스타일이구나.<br />✔️이런 느낌을 내려면 이 정도 금액이 필요한 거구나.<br />✔️그럼 예산을 어디에 더 쓰고, 어디에서 줄여야 할까?</p>
       <p><b>막연했던 결혼 준비가</b><br /><b><span class="ul">조금씩 현실적으로 보이기 시작했어요.</span></b></p>
@@ -570,66 +511,6 @@ window.POSTS = [
     readTime: "4 min",
     image: "images/order-1.jpg",
     imageAlt: "흰 꽃으로 가득 채운 웨딩 포토존",
-    file: {
-      name: "결혼 준비 순서 체크리스트",
-      desc: "실제 진행 순서 · 빨리 마감되는 업체 · 플래너와 확인할 것",
-      url: "#",
-    },
-    vaultLabel: "자료",
-    vault: `
-      <p class="vault-lead">웨딩홀을 늦게 계약해야 하는 상황이라도, 놓치면 아쉬운 업체부터 일정을 챙기면 훨씬 덜 헤매요. 제가 실제로 진행한 순서와 다시 한다면 할 순서를 정리했어요.</p>
-      <div class="vault-sum">
-        <p class="vault-sum__label">홀 계약이 늦어질 때 추천 순서</p>
-        <ol>
-          <li><span>01</span><b>박람회</b></li>
-          <li><span>02</span><b>플래너 계약</b></li>
-          <li><span>03</span><b>헤어변형 &amp; 스튜디오 함께 계약</b></li>
-          <li><span>04</span><b>드레스 후보 미리 소통</b></li>
-          <li><span>05</span><b>메이크업 후보 미리 소통</b></li>
-          <li><span>06</span><b>웨딩홀 예약 가능 일정도 계속 확인하고 계약</b></li>
-        </ol>
-      </div>
-      <p class="vault-small">박람회나 플래너 계약은 필수 과정이 아니고, 웨딩홀을 늦게 예약하라는 뜻도 아니에요. 홀 계약이 늦어지는 상황이라면 다른 인기 업체 예약까지 함께 놓치지 말자는 의미예요.</p>
-
-      <h3><span>01</span>제가 실제로 진행한 순서</h3>
-      <p>부모님이 날짜를 받아주셔야 해서 웨딩홀 계약을 가장 늦게 진행했어요. 그래서 준비할 수 있는 부분부터 하나씩 예약하고 정리해 뒀어요.</p>
-      <ul class="vault-list">
-        <li>웨딩박람회 방문</li>
-        <li>플래너 계약</li>
-        <li>스튜디오 예약</li>
-        <li>드레스 후보 미리 결정 (본식 날짜가 나오면 바로 계약할 수 있도록)</li>
-        <li>헤어, 메이크업 미리 결정 (본식 날짜가 나오면 바로 계약할 수 있도록)</li>
-        <li>웨딩홀 계약</li>
-      </ul>
-      <p>일정을 타이트하게 잡으면 마음이 급해지는 스타일이라, 이렇게 했더니 생각보다 마음이 너무 편안했어요.</p>
-
-      <h3><span>02</span>예약이 빨리 마감되는 곳부터 확인하기</h3>
-      <h4>스튜디오</h4>
-      <p>보통 본식 약 6개월 전에 촬영하는데, 미감 좋고 금액도 괜찮은 곳들은 원하는 날짜에 이미 예약이 차 있는 경우가 많았어요. 정말 원하는 스튜디오가 있다면 촬영 날짜에 맞춰 본식 일정을 정하는 경우도 있대요.</p>
-      <h4>헤어변형</h4>
-      <p>마음에 드는 분들께 하나씩 연락드렸는데 <b>10명 중 10명 모두 마감</b>이었어요. 스튜디오보다 헤어변형 예약이 더 빡센 것 같아요..</p>
-      <div class="vault-tip">
-        <p class="vault-tip__label">💘 팁!</p>
-        <p>촬영할 때 헤어변형을 원한다면 <b>스튜디오 예약과 동시에</b> 알아보세요. 마음에 드는 분이 있다면 가능한 날짜부터 확인하기!</p>
-      </div>
-
-      <h3><span>03</span>플래너님과 꼭 확인할 것</h3>
-      <p>중요한 시점마다 이렇게 알려주시니 결정이 훨씬 쉬웠어요.</p>
-      <p class="vault-note"><b>이런 말을 들을 수 있어요</b>“이 업체는 원하는 일정이 마감될 수 있으니 이때까지 결정하시면 좋을 것 같아요!”<br />“이 업체는 곧 금액이 올라갈 수 있어요!”<br />— 희망하는 업체는 예약을 잠시 홀딩할 수 있는지도 물어보기 (홀딩 가능 여부와 조건은 업체마다 달라요)</p>
-
-      <h3 class="is-plain">준비하면서 체크해 보세요</h3>
-      <ul class="vault-check">
-        <li>예식 날짜를 언제쯤 알 수 있는지 확인했다</li>
-        <li>스튜디오 촬영일 정할 때 <b>헤어변형</b>도 함께 알아봤다</li>
-        <li>원하는 업체의 <b>예약 오픈 시점</b>을 확인했다</li>
-        <li>플래너님과 <b>예약 마감·가격 변경 시점</b>을 확인했다</li>
-        <li>희망 업체의 <b>홀딩 가능 여부</b>를 물어봤다</li>
-      </ul>
-
-      <h3 class="is-plain">오늘은 여기까지만</h3>
-      <p>예약을 무조건 빨리 하는 것보다 <u>내가 놓치면 아쉬울 업체가 어디인지</u> 먼저 알아두는 게 중요하더라고요.</p>
-      <p class="vault-small">본 콘텐츠의 저작권은 @jjomaeng.2에게 있습니다. 무단 전재, 재배포 및 상업적 이용 시 저작권법에 따라 법적 책임을 물을 수 있습니다.</p>
-    `,
     body: `
       <p><span class="t-gray">예상보다 많은 분들이 봐주셔서,, 급하게 만든</span><br /><b><span class="t-green">시작 전 이렇게 하면 조금 더 편해요..!</span></b><br /><b><mark class="hl">✦ 결혼준비 순서 편 (지금 준비한 순서까지)</mark></b></p>
       <p>결혼 준비 순서 찾아보면<br />보통 이렇게 알려주잖아요.</p>
@@ -645,6 +526,7 @@ window.POSTS = [
       <p><b>제가 중요하게 생각하지 않았던</b><br /><b>한 가지가 있었어요.</b></p>
       <p>바로 헤어변형..🥹</p>
       <section class="step"><span class="step__no">01</span><div class="step__body"><h3>스튜디오 예약, 생각보다 빨리 마감돼요</h3>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-order-1.jpg" alt="스튜디오 인스타그램 피드 화면" loading="lazy" /></div></figure>
       <p><a href="https://www.instagram.com/amusehaus/" target="_blank" rel="noopener">https://www.instagram.com/amusehaus/</a></p>
       <p>처음에는 저도<br />웨딩홀부터 계약하고<br />스드메를 준비하는 게<br />당연한 순서라고 생각했어요.</p>
       <p>그런데 박람회에서 상담받다가<br />스튜디오 예약 상황을 알게 됐거든요.</p>
@@ -652,6 +534,7 @@ window.POSTS = [
       <p>그래서.. 정말 원하는 스튜디오가<br />고정으로 있다면<br />스튜디오 촬영 날짜에 맞춰서<br />본식 일정을 정하는 경우도 있대요..</p>
       </div></section>
       <section class="step"><span class="step__no">02</span><div class="step__body"><h3>그래서 저는 웨딩홀을 가장 늦게 계약했어요</h3>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-order-2.jpg" alt="플래너 업체 문의 화면" loading="lazy" /></div></figure>
       <p>저는 부모님이 날짜를 받고<br />결혼을 해야 한다고 해서,<br /><span class="t-note">(타협이 안 되었어요)</span><br />상황상 웨딩홀 계약을<br />가장 늦게 진행해야 했어요.</p>
       <p>그래서 제가 실제로 준비한 순서는요!</p>
       <p><b>① 웨딩박람회 방문</b><br /><b>② 플래너 계약</b><br /><b>③ 스튜디오 예약</b><br /><b>④ 드레스 후보 미리 결정</b> <span class="t-note">(이후 본식 날짜 나오면 바로 계약할 수 있도록)</span><br /><b>⑤ 헤어, 메이크업 미리 결정</b> <span class="t-note">(이후 본식 날짜 나오면 바로 계약할 수 있도록)</span><br /><b>⑥ 웨딩홀 계약</b></p>
@@ -660,6 +543,7 @@ window.POSTS = [
       <p>그래서 준비할 수 있는 부분부터<br />하나씩 예약하고 정리해 뒀어요.</p>
       <p>그랬더니 생각보다<br />마음이 너무 편안한 거예요..ㅎ</p>
       <p>그리고 이 과정에서<br />플래너님의 도움을 정말 많이 받았어요.</p>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-order-3.jpg" alt="플래너와 나눈 대화 화면" loading="lazy" /></div></figure>
       <p>"이 업체는 원하는 일정이 마감될 수 있으니<br />이때까지 결정하시면 좋을 것 같아요!"</p>
       <p>"이 업체는 곧 금액이 올라갈 수 있어요!"</p>
       <p>이렇게 중요한 시점마다<br />알려주시더라고요.</p>
@@ -672,6 +556,7 @@ window.POSTS = [
       </div></section>
       <section class="step"><span class="step__no">03</span><div class="step__body"><h3>헤어변형도 중요해요..?</h3>
       <p>여기서 제가 놓친 게 하나 있어요.<br />바로 <b>헤어변형!!!</b></p>
+      <figure class="inline-figure inline-figure--shot" data-reveal><div class="inline-figure__img"><img src="images/prep-order-4.jpg" alt="헤어변형 업체 인스타그램 피드 화면" loading="lazy" /></div></figure>
       <p><a href="https://www.instagram.com/danharu_wedding_gaeul/" target="_blank" rel="noopener">https://www.instagram.com/danharu_wedding_gaeul/</a><br /><span class="t-gray">(제 원픽이였지만.. 실패한 곳 공유드려용.. 얼릉 줍줍해가시길..)</span></p>
       <p>사실 처음에는<br />헤어변형을 그렇게 중요하게<br />생각하지 않았거든요.</p>
       <p>그런데 스튜디오를 예약하고<br />촬영 스타일을 찾아보다 보니까<br />이제는<br />헤어변형이 90% 필수더라고요.</p>

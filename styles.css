@@ -540,3 +540,7 @@ h1, h2, h3, h4, .highlight, .vault-quote, .featured__title, .post-row__main h3 {
 .article__body .t-green { color: var(--heading); }
 .article__body h4 { font-size: 1.08em; font-weight: 700; color: var(--heading); margin-top: 1.8em; }
 .article__body a[target="_blank"] { color: var(--accent); word-break: break-all; }
+
+/* 캡처 이미지(노션 원본 비율 그대로, 잘리지 않게) */
+.inline-figure--shot .inline-figure__img { aspect-ratio: auto; background: none; display: flex; justify-content: center; overflow: visible; }
+.inline-figure--shot .inline-figure__img img { width: auto; max-width: 100%; height: auto; max-height: min(78vh, 760px); object-fit: contain; transform: none; border: 1px solid var(--line); border-radius: 6px; }
