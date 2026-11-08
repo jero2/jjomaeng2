@@ -395,8 +395,8 @@ window.POSTS = [
   {
     slug: "prep-planner",
     category: "prep",
-    categoryLabel: "결혼준비",
-    series: "결혼준비 (1)",
+    categoryLabel: "준비전",
+    series: "준비전 (1)",
     title: "결혼 준비 전,\n플래너 계약을 하셨나요?",
     subtitle: "급한 선물 1 · 플래너 편 (+박람회)",
     excerpt: "결혼 준비 시작하기도 전에 고민되는 것들이 참 많잖아요. 플래너는 꼭 필요한가? 동행이 좋을까, 비동행이 좋을까? 박람회는 가야 하나..?",
@@ -501,8 +501,8 @@ window.POSTS = [
   {
     slug: "prep-order",
     category: "prep",
-    categoryLabel: "결혼준비",
-    series: "결혼준비 (2)",
+    categoryLabel: "준비전",
+    series: "준비전 (2)",
     title: "결혼 준비,\n알아본 순서랑 다른데요?",
     subtitle: "급한 선물 2 · 결혼준비 순서 편 (지금 준비한 순서까지)",
     excerpt: "결혼 준비 순서 찾아보면 보통 이렇게 알려주잖아요. 웨딩홀 → 스튜디오 → 드레스 → 메이크업. 근데 요즘 예약할 때 생각보다 치열한 곳이 어딘 줄 아세요..?",

@@ -150,7 +150,7 @@
             <button data-filter="all">전체</button>
             <button data-filter="hall">웨딩홀</button>
             <button data-filter="studio">스튜디오</button>
-            <button data-filter="prep">결혼준비</button>
+            <button data-filter="prep">준비전</button>
           </div>
         </div>
         <ul class="post-list">${rows}</ul>
