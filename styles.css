@@ -203,6 +203,7 @@ a:hover .arrow, .post-row:hover .arrow { width: 68px; }
 .post-row__main h3 { font-size: clamp(19px, 2vw, 24px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.35; transition: transform 0.6s var(--ease-out); }
 .post-row:hover .post-row__main h3 { transform: translateX(10px); }
 .post-row__main p { margin-top: 6px; font-size: 14px; color: var(--ink-3); line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; transition: transform 0.6s var(--ease-out) 0.03s; }
+.post-row__main p mark { background: linear-gradient(transparent 55%, var(--mint-soft) 55%); color: var(--ink-2); font-weight: 500; }
 .post-row:hover .post-row__main p { transform: translateX(10px); }
 .post-row__side { display: flex; justify-content: flex-end; align-items: center; gap: 18px; }
 .post-row__date { font-size: 12px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
