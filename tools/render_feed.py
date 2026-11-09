@@ -8,6 +8,8 @@
      -> 필요한 /_blob/ 자산 id 목록 출력. 각 id 를 Artifact read path=<id> 로 받으면 ROOT/<id>.<확장자> 로 저장됨
   3) python3 tools/render_feed.py --root ROOT --boards A01,A02,... --out OUT --prefix noble_hook
      -> OUT/noble_hook_01.png ... 생성 (보드 순서대로 번호)
+     보드 하나에 장표 여러 장이 격자로 들어 있으면(예: Main.dc.html) --split 을 붙인다.
+     -> 격자 안의 장표를 순서대로 한 장씩 잘라 저장
 아트보드의 {{hole}} 은 data-props 의 default 값으로 채운다 (Tweaks 에서 바꾼 값이 default 로 저장됨).
 """
 import argparse, asyncio, html, json, re, sys
@@ -51,12 +53,26 @@ def build(root: Path, board: str):
     link = f'<link rel="stylesheet" href="{fonts.as_uri()}">' if fonts.exists() else ''
     return f'<!doctype html><html lang="ko"><head><meta charset="utf-8">{link}</head><body style="margin:0;background:#FFFFFF">{body}</body></html>'
 
-async def render(root, boards, out, prefix, w, h):
+async def render(root, boards, out, prefix, w, h, split=False):
     from playwright.async_api import async_playwright
     out.mkdir(parents=True, exist_ok=True)
     tmp = out / '_html'; tmp.mkdir(exist_ok=True)
     async with async_playwright() as p:
         b = await p.chromium.launch(args=['--allow-file-access-from-files'])
+        if split:
+            pg = await b.new_page(viewport={'width': 6000, 'height': 4000}, device_scale_factor=1)
+            k = 0
+            for n in boards:
+                f = tmp / f'{n}.html'; f.write_text(build(root, n), encoding='utf-8')
+                await pg.goto(f.as_uri()); await pg.evaluate('document.fonts.ready'); await pg.wait_for_timeout(600)
+                bad = await pg.evaluate("() => [...document.images].filter(i=>!i.complete||!i.naturalWidth).map(i=>i.src)")
+                for el in await pg.query_selector_all('body > div:first-of-type > *'):
+                    k += 1
+                    dst = out / f'{prefix}_{k:02d}.png'
+                    await el.screenshot(path=str(dst))
+                    print(n, '->', dst.name)
+                print('깨진 이미지:', bad)
+            await b.close(); return
         pg = await b.new_page(viewport={'width': w, 'height': h}, device_scale_factor=1)
         for i, n in enumerate(boards, 1):
             f = tmp / f'{n}.html'; f.write_text(build(root, n), encoding='utf-8')
@@ -73,6 +89,7 @@ def main():
     a.add_argument('--out'); a.add_argument('--prefix', default='slide')
     a.add_argument('--width', type=int, default=1080); a.add_argument('--height', type=int, default=1350)
     a.add_argument('--list-blobs', action='store_true')
+    a.add_argument('--split', action='store_true', help='보드 하나 안의 격자 장표를 한 장씩 저장')
     o = a.parse_args(); root = Path(o.root); boards = [x.strip() for x in o.boards.split(',') if x.strip()]
     if o.list_blobs:
         for n in boards:
@@ -80,7 +97,7 @@ def main():
             print(n, ' '.join(f'{i}{"" if find_blob(root, i) else " (없음)"}' for i in blob_ids(body)))
         return
     if not o.out: sys.exit('--out 필요')
-    asyncio.run(render(root, boards, Path(o.out), o.prefix, o.width, o.height))
+    asyncio.run(render(root, boards, Path(o.out), o.prefix, o.width, o.height, o.split))
 
 if __name__ == '__main__':
     main()
